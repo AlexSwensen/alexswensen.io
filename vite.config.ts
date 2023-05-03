@@ -14,6 +14,7 @@ if (sentryAuthToken && org && project) {
 	console.log('Sentry enabled');
 	plugins.push(
 		sentryVitePlugin({
+			telemetry: false,
 			org: org,
 			project: project,
 			authToken: sentryAuthToken,
