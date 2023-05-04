@@ -1,5 +1,9 @@
 <script>
 	import '../app.css';
+	import Nav from '../lib/components/Nav.svelte';
 </script>
 
-<slot />
+<Nav />
+<div class="p-4">
+	<slot />
+</div>
