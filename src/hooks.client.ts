@@ -23,9 +23,9 @@ if (sentryEnabled) {
 // This will catch errors in load functions from +page.ts files
 export const handleError = (({ error, event }) => {
 	if (sentryEnabled) {
-		SentrySvelte.captureException(error, { contexts: { sveltekit: { event } } });
+		SentrySvelte.captureException(error as Error, { contexts: { sveltekit: { event } } });
 	}
 	return {
-		message: error.message
+		message: (error as Error).message
 	};
 }) satisfies HandleClientError;
