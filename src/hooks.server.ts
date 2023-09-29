@@ -1,9 +1,10 @@
 import { NODE_ENV } from '$env/static/private';
 import { PUBLIC_SENTRY_DSN } from '$env/static/public';
+import { redirectMap } from '$lib/services/redirects';
 import * as SentryNode from '@sentry/node';
 import '@sentry/tracing';
-import type { HandleServerError } from '@sveltejs/kit';
-import { Response, redirect } from '@sveltejs/kit';
+import type { HandleServerError, Handle } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
 import { URL } from 'url';
 
 const sentryEnabled = PUBLIC_SENTRY_DSN;
@@ -31,15 +32,10 @@ export const handleError = (({ error, event }) => {
 
 
 
-const redirectMap = new Map([
-	['/old-page', '/blog/new-page'],
-	['/another-old-page', '/blog/another-new-page']
-]);
-
-export async function handle({ event, resolve }: { event: FetchEvent, resolve: (request: Request) => Response }): Promise<Response> {
-	
-	const request = event.request;
+export const handle: Handle = async ({ event, resolve }) => {
+	const { request } = event;
 	const url = new URL(request.url);
+	// redirect old URLs
 	if (redirectMap.has(url.pathname)) {
 		const redirectUrl = redirectMap.get(url.pathname);
 		if (redirectUrl) {
@@ -48,5 +44,5 @@ export async function handle({ event, resolve }: { event: FetchEvent, resolve: (
 	}
 
 	return resolve(event);
-}
+};
 
