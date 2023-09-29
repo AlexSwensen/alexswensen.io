@@ -3,6 +3,8 @@ import { PUBLIC_SENTRY_DSN } from '$env/static/public';
 import * as SentryNode from '@sentry/node';
 import '@sentry/tracing';
 import type { HandleServerError } from '@sveltejs/kit';
+import { Response, redirect } from '@sveltejs/kit';
+import { URL } from 'url';
 
 const sentryEnabled = PUBLIC_SENTRY_DSN;
 
@@ -26,3 +28,25 @@ export const handleError = (({ error, event }) => {
 		message: (error as Error).message
 	};
 }) satisfies HandleServerError;
+
+
+
+const redirectMap = new Map([
+	['/old-page', '/blog/new-page'],
+	['/another-old-page', '/blog/another-new-page']
+]);
+
+export async function handle({ event, resolve }: { event: FetchEvent, resolve: (request: Request) => Response }): Promise<Response> {
+	
+	const request = event.request;
+	const url = new URL(request.url);
+	if (redirectMap.has(url.pathname)) {
+		const redirectUrl = redirectMap.get(url.pathname);
+		if (redirectUrl) {
+			throw redirect(307, new URL(redirectUrl, url).toString());
+		}
+	}
+
+	return resolve(event);
+}
+
