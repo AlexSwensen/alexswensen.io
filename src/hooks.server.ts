@@ -20,9 +20,9 @@ if (sentryEnabled) {
 // use handleError to report errors during server-side data loading
 export const handleError = (({ error, event }) => {
 	if (sentryEnabled) {
-		SentryNode.captureException(error, { contexts: { sveltekit: { event } } });
+		SentryNode.captureException(error as Error, { contexts: { sveltekit: { event } } });
 	}
 	return {
-		message: error.message
+		message: (error as Error).message
 	};
 }) satisfies HandleServerError;
