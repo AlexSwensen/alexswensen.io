@@ -1,3 +1,6 @@
+// map of existing blog urls to new blog urls
+// useful for fixing broken links and SEO
+
 export const redirectMap = new Map([
 	['/2020-12-09_popos-on-2011-macbook-pro', '/blog/2020-12-09_popos-on-2011-macbook-pro'],
 	['/2020-12-08_android-to-iphone/', '/blog/2020-12-08_android-to-iphone'],
