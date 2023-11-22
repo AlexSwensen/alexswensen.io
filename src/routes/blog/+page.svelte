@@ -1,6 +1,8 @@
 <script lang="ts">
-	const data = import.meta.compileTime('../../lib/static-content/get-posts.ts');
-	const dataJSON = JSON.stringify(data);
+	import type { PageData } from './$types';
+
+	export let data: PageData;
+	const posts = data.posts;
 </script>
 
 <h1 class="text-xl font-bold">This is a blog page... or it will be soon</h1>
@@ -8,5 +10,10 @@
 <h2>another element</h2>
 
 <div class="w-full">
-	<p>{dataJSON}</p>
+	{#each posts as post}
+		<div class="p-4">
+			<h3 class="text-lg font-bold">{post.title}</h3>
+			<p>{post.content}</p>
+		</div>
+	{/each}
 </div>
