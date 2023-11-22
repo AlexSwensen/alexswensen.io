@@ -7,5 +7,5 @@ export const redirectMap = new Map([
 	['/regarding-hacktoberfest/', '/blog/regarding-hacktoberfest'],
 	['/vscode-python3-intellisense', '/blog/vscode-python3-intellisense'],
 	['/wemos-esp32-notes', '/blog/wemos-esp32-notes'],
-	['/writing-e2e-tests-with-protractor', '/blog/writing-e2e-tests-with-protractor'],
+	['/writing-e2e-tests-with-protractor', '/blog/writing-e2e-tests-with-protractor']
 ]);

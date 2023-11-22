@@ -30,8 +30,6 @@ export const handleError = (({ error, event }) => {
 	};
 }) satisfies HandleServerError;
 
-
-
 export const handle: Handle = async ({ event, resolve }) => {
 	const { request } = event;
 	const url = new URL(request.url);
@@ -45,4 +43,3 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	return resolve(event);
 };
-
