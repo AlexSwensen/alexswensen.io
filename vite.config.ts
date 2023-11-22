@@ -2,6 +2,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vitest/config';
 import { sentryVitePlugin } from '@sentry/vite-plugin';
 import type { PluginOption } from 'vite';
+import compileTime from "vite-plugin-compile-time"
 
 // const isProduction = process.env.NODE_ENV === 'production';
 const sentryAuthToken = process.env.SENTRY_AUTH_TOKEN;
@@ -26,7 +27,7 @@ if (sentryAuthToken && org && project) {
 }
 
 export default defineConfig({
-	plugins: [sveltekit(), ...plugins],
+	plugins: [sveltekit(), compileTime(), ...plugins],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}'],
 		globals: true,
