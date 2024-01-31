@@ -34,10 +34,19 @@ export const handle: Handle = async ({ event, resolve }) => {
 	const { request } = event;
 	const url = new URL(request.url);
 	// redirect old URLs
-	if (redirectMap.has(url.pathname)) {
-		const redirectUrl = redirectMap.get(url.pathname);
+	// if the URL is in the map, redirect to the new URL
+	// if the URL has a trailing slash, redirect to the URL without the trailing slash (which is the sveltekit default)
+	if (
+		redirectMap.has(url.pathname) ||
+		redirectMap.has(url.pathname + '/') ||
+		redirectMap.has(url.pathname.slice(0, -1))
+	) {
+		const redirectUrl =
+			redirectMap.get(url.pathname) ||
+			redirectMap.get(url.pathname + '/') ||
+			redirectMap.get(url.pathname.slice(0, -1));
 		if (redirectUrl) {
-			throw redirect(307, new URL(redirectUrl, url).toString());
+			redirect(307, new URL(redirectUrl, url).toString());
 		}
 	}
 
