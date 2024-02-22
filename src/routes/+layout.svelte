@@ -4,6 +4,6 @@
 </script>
 
 <Nav />
-<div class="p-4">
+<div class="p-10">
 	<slot />
 </div>
