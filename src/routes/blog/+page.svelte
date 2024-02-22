@@ -6,12 +6,13 @@
 	const posts = data.posts;
 </script>
 
-	<div>
+<div>
 	{#each posts as post}
 		<div class="p-4">
-			<h3 class="text-lg font-bold">{post.title}</h3>
-			<P>{post.content}</P>
+			<a class="text-lg font-bold underline hover:text-blue-600" href="/blog/{post.slug}"
+				>{post.title}</a
+			>
+			<P>{post.excerpt}</P>
 		</div>
 	{/each}
-	</div>
-
+</div>

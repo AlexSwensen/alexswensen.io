@@ -8,7 +8,7 @@ export default async () => {
 	};
 };
 
-async function getMarkdownFiles(dir) {
+async function getMarkdownFiles(dir: string) {
 	const files = await fs.promises.readdir(dir);
 	const markdownFiles = [];
 
@@ -33,6 +33,7 @@ async function readMarkdownFiles() {
 		const { data, content: markdownContent } = matter(content);
 		const post = {
 			...data,
+			slug: path.basename(file).replace('.md', ''),
 			content: markdownContent
 		};
 		posts.push(post);
