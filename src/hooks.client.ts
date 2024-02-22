@@ -1,6 +1,6 @@
 import * as SentrySvelte from '@sentry/svelte';
 // import { BrowserTracing } from '@sentry/tracing';
-import { BrowserTracing } from '@sentry/svelte';
+import { browserTracingIntegration } from '@sentry/svelte';
 import type { HandleClientError } from '@sveltejs/kit';
 import * as _publicEnvVars from '$env/static/public';
 
@@ -10,7 +10,7 @@ const sentryEnabled =
 if (sentryEnabled) {
 	SentrySvelte.init({
 		dsn: _publicEnvVars.PUBLIC_SENTRY_DSN,
-		integrations: [new BrowserTracing(), new SentrySvelte.Replay()],
+		integrations: [browserTracingIntegration(), SentrySvelte.replayIntegration()],
 		environment: _publicEnvVars.PUBLIC_NODE_ENV,
 		tracesSampleRate: 1.0,
 		replaysSessionSampleRate: 1.0, // This sets the sample rate at 10%. You may want to change it to 100% while in development and then sample at a lower rate in production.
