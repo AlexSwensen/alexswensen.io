@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { Blockquote, Heading, P } from 'flowbite-svelte';
 	import type { PageData } from './$types';
-	import { format, formatDistance, subDays } from 'date-fns';
+	import { formatRelative } from 'date-fns';
 
 	export let data: PageData;
 	const post = data;
 
-	const datePosted = format(new Date(post.date), 'MMMM dd, yyyy @ h:mm a');
+	const datePosted = formatRelative(new Date(post.date), new Date());
 </script>
 
 <svelte:head>
