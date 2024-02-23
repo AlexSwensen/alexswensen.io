@@ -33,7 +33,7 @@
 	<link rel="shortcut icon" href="/images/favicon.ico" />
 </svelte:head>
 
-<div class="p-4">
+<div class="">
 	<article class="prose mx-auto max-w-4xl break-words text-pretty">
 		<Heading size="2xl">{post.title}</Heading>
 		<P class="">{post.content}</P>

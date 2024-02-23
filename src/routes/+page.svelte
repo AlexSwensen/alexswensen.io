@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Alert } from 'flowbite-svelte';
+	import { Alert, Heading, Hr, List, P } from 'flowbite-svelte';
 </script>
 
 <svelte:head>
@@ -25,13 +25,16 @@
 	<meta name="theme-color" content="#000000" />
 </svelte:head>
 
-<p>
-	Visit <a href="https://kit.svelte.dev" class="link">kit.svelte.dev</a> to read the documentation
-</p>
+<Heading>Welcome to alexswensen.io</Heading>
+<Hr />
+<P class="py-4">
+	This is my personal site and blog. I occasionally write things here. This site was built utilizing
+	the following tech stack. I hope you enjoy your stay!
+</P>
 
-<div>
-	<Alert>
-		<span class="font-medium">Info alert!</span>
-		Change a few things up and try submitting again.
-	</Alert>
-</div>
+<List>
+	<li>SvelteKit</li>
+	<li>TailwindCSS</li>
+	<li>Flowbite Svelte</li>
+	<li>SCSS</li>
+</List>

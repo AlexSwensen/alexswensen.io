@@ -33,7 +33,7 @@
 
 <div>
 	{#each posts as post}
-		<div class="p-4">
+		<div class="py-4">
 			<a class="text-lg font-bold underline hover:text-blue-600" href="/blog/{post.slug}"
 				>{post.title}</a
 			>
