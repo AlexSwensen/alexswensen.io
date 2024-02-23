@@ -3,20 +3,21 @@ layout: post
 title: 'Writing E2E Tests With Protractor'
 author: [Alexander Swensen]
 tags: ['Getting Started']
-image: img/main-image-min.jpg
+image: /img/main-image-min.jpg
 date: '2017-06-15T17:12:37-05:00'
 draft: false
 excerpt: "Update 2021: I recommend most people look into Cypress now."
 ---
 
-## Update 2021:
+## Update 2021
+
 I recommend most people look into [Cypress](https://www.cypress.io/) now. It's API is far simpler, and it works well with every modern framework in existance. Best of all, its free, and easy to scale across multiple workers without having to use the paid tier. (Although if you can afford it, you totally should, they are a great company.)
 
-## Note: The following only applies to node 7 and below.
+## Note: The following only applies to node 7 and below
 
 The debugging api was broken in node 8 and the protractor team has [decided to take an alternative route for debugging going forward.](https://github.com/angular/protractor/issues/4307#issuecomment-346507942)
 
->## Hard things are hard.
+>## Hard things are hard
 
 Coding is hard. AngularJS makes it easier, but it's still hard. With the
 complexity that AngularJS brings, unit testing can be hard. But the
@@ -35,11 +36,10 @@ It's essentially a permanent version of `browser.explore()` (see debugging secti
 You run it by running:
 
 ```shell-session
-$ protractor [configFile] [options] --elementExplorer
+protractor [configFile] [options] --elementExplorer
 ```
 
-
-**Note**: _if you have a webpack config you might need to point Protractor to the config as well._
+**Note**: *if you have a webpack config you might need to point Protractor to the config as well.*
 
 From there you get a full REPL to enter protractor commands.
 
@@ -66,7 +66,6 @@ user actions.
 I personally organize each flow in a `describe` block, with each step as
 a `it` block.
 
-
 ```javascript
 describe("login flow", function () {
     it('should load the page', function () {
@@ -89,9 +88,7 @@ describe("login flow", function () {
 Hopefully the above can give you an idea of where to start. If you need
 a complete reference I recommend the [Protractor API Docs](http://www.protractortest.org/#/api)
 
-
 > ## Ok, I understand how to test, and where docs are. How do I debug this $*!t?
-
 
 I'll hit you with some of the not-so-clear bits and pieces. If you look at
 [Debugging Protractor Tests](https://github.com/angular/protractor/blob/master/docs/debugging.md)
@@ -104,18 +101,16 @@ These are your bread and butter of the debugging tools. If you have ever used py
 or `pytest.stack_trace()` you will know how these tools work. Sadly
 protractor doesn't have quite the same level of control, and the naming convention is not what most frontend developers are used to.
 
-_Note:_ if you use any of these, you will need to extend the test
+*Note:* if you use any of these, you will need to extend the test
 timeouts in your `protractor.config.js` file.
 
 ---
 
 ## `browser.pause()`
 
-
 `browser.pause()` is essentially a breakpoint that pauses execution on
 that line, allowing you to step forward one step at a time, and detach
 to continue tests. (very similar to a `debugger;` statement in javascript.)
-
 
 ```ts
 it('should fail to find a non-existent element', function() {
@@ -149,7 +144,6 @@ it('should fail to find a non-existent element', function() {
 });
 ```
 
-
 For this reason, if you wish to use `browser.debugger()`
 you need to run your protractor tests in `debug` mode:
 
@@ -166,8 +160,7 @@ are trying to find a problem in Protractor/selenium.
 
 Next is `browser.explore()`. Arguably I find this one of the most useful
 for debugging. Its similar to `browser.pause()` but instead of stepping through, it
-gives you a REPL to control and _**explore**_ your app as Protractor would.
-
+gives you a REPL to control and ***explore*** your app as Protractor would.
 
 ---
 
@@ -181,8 +174,7 @@ This is especially common on CI systems like CircleCI or Jenkins
 where you are running on low resource environments.
 Try throwing a [`browser.sleep(1000)`](http://www.protractortest.org/#/api?view=webdriver.WebDriver.prototype.sleep) in there.
 
-
-- When debugging, you will be re-running the tests a _**lot**_.
+- When debugging, you will be re-running the tests a ***lot***.
 That's just how it works. Be patient. If you have a webpack build
 process, try and make that run as fast as possible. In a large
 application that can take almost as long as the tests.
@@ -191,11 +183,10 @@ application that can take almost as long as the tests.
 - Use [`.clear()`](http://www.protractortest.org/#/api?view=webdriver.WebElement.prototype.clear) to clear a field.
 
 - Try and modularize common steps that you use alot. It will make
-modifying existing tests a lot easier _when_ your application changes.
+modifying existing tests a lot easier *when* your application changes.
 
 I've linked to these before, but i'll give you two main articles I
 referenced when writing this post.
-
 
 [Debugging Protractor Docs](https://github.com/angular/protractor/blob/master/docs/debugging.md) - Grabbed some code examples from here
 

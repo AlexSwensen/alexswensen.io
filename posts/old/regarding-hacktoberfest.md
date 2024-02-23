@@ -3,7 +3,7 @@ layout: post
 title: 'Regarding Hacktoberfest, OpenSource and Spam'
 author: [Alexander Swensen]
 tags: ['OpenSource', 'Digital Ocean']
-image: img/hacktoberfest.png
+image: /img/hacktoberfest.png
 date: '2020-10-01T14:00:00-05:00'
 draft: false
 excerpt: Lets all just take a second and breathe...

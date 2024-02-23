@@ -3,7 +3,7 @@ layout: post
 title: 'Installing Pop!_OS (Linux) on a Late 2011 MacBook Pro'
 author: [Alexander Swensen]
 tags: ['Linux', 'Apple']
-image: img/macbook-code-splash.jpg
+image: /img/macbook-code-splash.jpg
 date: '2020-12-09T14:00:00-05:00'
 draft: false
 excerpt: When Apple EOL's, Linux gives new life.
@@ -71,4 +71,4 @@ This worked for me, and gave my mac a new lease on life! Hopefully this helps yo
 EDIT: A few last minute items I want to add. First a friend reached out and asked if other hardware like the webcam, bluetooth, audio, and external display work. I can say confidently that they work great! Next, I think its worth pointing out that you can pickup a pre-owned mac like the one I have on [ebay](https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313&_nkw=2011+macbook+pro&_sacat=0) for anywhere from $50-$200 USD, so if you are looking for a cheap laptop this is a great option!
 
 
-![my mac running Pop!_OS](img/late-2011-mbp.jpg)
+![my mac running Pop!_OS](/img/late-2011-mbp.jpg)

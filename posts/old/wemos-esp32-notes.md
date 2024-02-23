@@ -3,7 +3,7 @@ layout: post
 title: "\"WeMos\" ESP32 Notes"
 author: [Alexander Swensen]
 tags: ['arduino']
-image: img/wemos.jpg
+image: /img/wemos.jpg
 date: '2017-10-31T22:19:31-05:00'
 draft: false
 excerpt: "My notes on the fake WeMos branded ESP32."

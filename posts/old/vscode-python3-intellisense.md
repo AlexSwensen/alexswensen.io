@@ -3,7 +3,7 @@ layout: post
 title: 'Setting up Python3 Intellisense in Visual Studio Code'
 author: [Alexander Swensen]
 tags: ['Python']
-image: img/vscode-python.png
+image: /img/vscode-python.png
 date: '2019-12-06T14:00:00-05:00'
 draft: false
 excerpt: Because for some reason it isn't setup by default...

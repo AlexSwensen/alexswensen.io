@@ -3,7 +3,7 @@ layout: post
 title: 'From Android to iPhone'
 author: [Alexander Swensen]
 tags: ['Apple', 'Google', 'iOS', 'Android', 'Phone']
-image: img/iPhone-hello.jpg
+image: '/img/iPhone-hello.jpg'
 date: '2020-12-08T14:00:00-05:00'
 draft: false
 excerpt: Begrudgingly I have come to the dark side. Here is why.
@@ -20,4 +20,4 @@ Making phone calls from my laptop, and answering texts in iMessage feels far cle
 
 On that note, I leave you with a happy picture of Chloe, who seems to be just as excited about this new chapter as I am.
 
-![Chloe the Corgi on the bed - taken on iphone.](img/chloe-bed.jpg)
+![Chloe the Corgi on the bed - taken on iPhone.](/img/chloe-bed.jpg)

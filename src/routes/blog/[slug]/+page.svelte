@@ -2,11 +2,15 @@
 	import { Blockquote, Heading, P } from 'flowbite-svelte';
 	import type { PageData } from './$types';
 	import { formatRelative } from 'date-fns';
+	import { marked } from 'marked';
+	import DOMPurify from 'isomorphic-dompurify';
 
 	export let data: PageData;
 	const post = data;
 
 	const datePosted = formatRelative(new Date(post.date), new Date());
+
+	const htmlMarkup = DOMPurify.sanitize(marked.parse(post.content) as string);
 </script>
 
 <svelte:head>
@@ -37,10 +41,14 @@
 </svelte:head>
 
 <div class="">
-	<article class="prose mx-auto max-w-4xl break-words text-pretty">
+	<article class="prose prose-gray mx-auto max-w-4xl break-words text-pretty">
 		<Heading size="2xl">{post.title}</Heading>
 		<Blockquote class="">{post.excerpt}</Blockquote>
 		<p class="text-gray-500 dark:text-gray-400">Published: {datePosted}</p>
-		<P class="">{post.content}</P>
+		<div
+			class="dark:text-white dark:prose-p:text-white dark:prose-headings:text-white dark:prose-strong:text-white dark:prose-code:text-white dark:prose-a:text-white mx-auto prose-img:mx-auto"
+		>
+			{@html htmlMarkup}
+		</div>
 	</article>
 </div>
