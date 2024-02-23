@@ -10,6 +10,8 @@
 	<title>{post.title}</title>
 	<meta name="description" content={post.excerpt} />
 	<meta name="keywords" content={post.tags.join(', ')} />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content={post.title} />
 	<meta name="author" content="Alex Swensen" />
 	<meta name="robots" content="index, follow" />
 	<meta name="googlebot" content="index, follow" />
@@ -34,7 +36,9 @@
 
 <div>
 	<div class="p-4">
-		<Heading size="2xl">{post.title}</Heading>
-		<P>{post.content}</P>
+		<article class="prose prose-slate">
+			<Heading size="2xl">{post.title}</Heading>
+			<P>{post.content}</P>
+		</article>
 	</div>
 </div>
