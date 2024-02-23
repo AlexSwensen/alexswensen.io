@@ -1,9 +1,12 @@
 <script lang="ts">
 	import { Blockquote, Heading, P } from 'flowbite-svelte';
 	import type { PageData } from './$types';
+	import { format, formatDistance, subDays } from 'date-fns';
 
 	export let data: PageData;
 	const post = data;
+
+	const datePosted = format(new Date(post.date), 'MMMM dd, yyyy @ h:mm a');
 </script>
 
 <svelte:head>
@@ -37,6 +40,7 @@
 	<article class="prose mx-auto max-w-4xl break-words text-pretty">
 		<Heading size="2xl">{post.title}</Heading>
 		<Blockquote class="">{post.excerpt}</Blockquote>
+		<p class="text-gray-500 dark:text-gray-400">Published: {datePosted}</p>
 		<P class="">{post.content}</P>
 	</article>
 </div>

@@ -53,6 +53,7 @@
 	"dependencies": {
 		"@sentry/node": "^7.102.1",
 		"@sentry/svelte": "^7.102.1",
-		"@sentry/tracing": "^7.102.1"
+		"@sentry/tracing": "^7.102.1",
+		"date-fns": "^3.3.1"
 	}
 }
