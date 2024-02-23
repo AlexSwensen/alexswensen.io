@@ -27,7 +27,7 @@
 </Navbar>
 <!-- <div class="navbar bg-base-200">
 	<div class="flex-1">
-		<a href="/" class="btn btn-ghost no-animation">alexswensen.io</a>
+		<a href="/" class="btn btn-ghost no-animation">ialexswensen.io</a>
 	</div>
 	<div class="flex-none px-2">
 		<ul class="menu menu-horizontal px-1">
