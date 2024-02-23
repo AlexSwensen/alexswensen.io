@@ -43,7 +43,7 @@
 
 <div class="">
 	<article class="prose prose-gray mx-auto max-w-4xl break-words text-pretty">
-		<img src={post.image} alt={post.title} class="mx-auto" />
+		<img src={post.image} alt={post.title} class="mx-auto rounded-lg" />
 		<Heading size="2xl">{post.title}</Heading>
 		<Blockquote class="">{post.excerpt}</Blockquote>
 		<p class="text-gray-500 dark:text-gray-400">Published: {datePosted}</p>
