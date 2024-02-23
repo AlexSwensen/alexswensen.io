@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Blockquote, Heading, P } from 'flowbite-svelte';
+	import { Blockquote, Heading, Hr, P } from 'flowbite-svelte';
 	import type { PageData } from './$types';
 	import { formatRelative } from 'date-fns';
 	import { marked } from 'marked';
@@ -42,14 +42,16 @@
 </svelte:head>
 
 <div class="">
-	<article class="prose prose-gray mx-auto max-w-4xl break-words text-pretty">
-		<img src={post.image} alt={post.title} class="mx-auto rounded-lg" />
+	<article
+		class="prose prose-gray mx-auto max-w-4xl break-words text-pretty dark:text-white dark:prose-p:text-white dark:prose-headings:text-white dark:prose-strong:text-white dark:prose-code:text-white dark:prose-a:text-white prose-img:mx-auto"
+	>
 		<Heading size="2xl">{post.title}</Heading>
 		<Blockquote class="">{post.excerpt}</Blockquote>
-		<p class="text-gray-500 dark:text-gray-400">Published: {datePosted}</p>
-		<div
-			class="dark:text-white dark:prose-p:text-white dark:prose-headings:text-white dark:prose-strong:text-white dark:prose-code:text-white dark:prose-a:text-white mx-auto prose-img:mx-auto"
-		>
+		<p class="text-gray-500 dark:text-gray-400 text-sm">Published: {datePosted}</p>
+		<Hr />
+		<img src={post.image} alt={post.title} class="mx-auto rounded-lg" />
+
+		<div>
 			{@html htmlMarkup}
 		</div>
 	</article>
