@@ -29,16 +29,13 @@
 	<link rel="apple-touch-icon" sizes="57x57" href="/images" />
 	<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
 	<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
-	<link rel="manifest" href="/manifest.json" />
 	<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5" />
 	<link rel="shortcut icon" href="/images/favicon.ico" />
 </svelte:head>
 
-<div>
-	<div class="p-4">
-		<article class="prose prose-slate">
-			<Heading size="2xl">{post.title}</Heading>
-			<P>{post.content}</P>
-		</article>
-	</div>
+<div class="p-4">
+	<article class="prose mx-auto max-w-4xl">
+		<Heading size="2xl">{post.title}</Heading>
+		<P class="">{post.content}</P>
+	</article>
 </div>
