@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Heading, P } from 'flowbite-svelte';
+	import { Blockquote, Heading, P } from 'flowbite-svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -36,6 +36,7 @@
 <div class="">
 	<article class="prose mx-auto max-w-4xl break-words text-pretty">
 		<Heading size="2xl">{post.title}</Heading>
+		<Blockquote class="">{post.excerpt}</Blockquote>
 		<P class="">{post.content}</P>
 	</article>
 </div>
