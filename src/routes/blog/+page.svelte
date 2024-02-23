@@ -4,6 +4,14 @@
 
 	export let data: PageData;
 	const posts = data.posts;
+
+	const datePosted = (date: string) => {
+		return new Date(date).toLocaleDateString(undefined, {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric'
+		});
+	};
 </script>
 
 <svelte:head>
@@ -37,6 +45,7 @@
 			<a class="text-lg font-bold underline hover:text-blue-600" href="/blog/{post.slug}"
 				>{post.title}</a
 			>
+			<P class="pb-2">{datePosted(post.date)}</P>
 			<P>{post.excerpt}</P>
 		</div>
 	{/each}
