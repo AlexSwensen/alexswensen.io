@@ -46,7 +46,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 			redirectMap.get(url.pathname + '/') ||
 			redirectMap.get(url.pathname.slice(0, -1));
 		if (redirectUrl) {
-			redirect(307, new URL(redirectUrl, url).toString());
+			redirect(301, new URL(redirectUrl, url).toString());
 		}
 	}
 
