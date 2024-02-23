@@ -19,6 +19,7 @@
 	<meta name="keywords" content={post.tags.join(', ')} />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={post.title} />
+	<meta property="og:image" content={post.image} />
 	<meta name="author" content="Alex Swensen" />
 	<meta name="robots" content="index, follow" />
 	<meta name="googlebot" content="index, follow" />
@@ -42,6 +43,7 @@
 
 <div class="">
 	<article class="prose prose-gray mx-auto max-w-4xl break-words text-pretty">
+		<img src={post.image} alt={post.title} class="mx-auto" />
 		<Heading size="2xl">{post.title}</Heading>
 		<Blockquote class="">{post.excerpt}</Blockquote>
 		<p class="text-gray-500 dark:text-gray-400">Published: {datePosted}</p>
