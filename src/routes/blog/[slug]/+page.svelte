@@ -19,7 +19,9 @@
 	<meta name="keywords" content={post.tags.join(', ')} />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={post.title} />
-	<meta property="og:image" content={post.image} />
+	{#if post.image}
+		<meta property="og:image" content={post.image} />
+	{/if}
 	<meta name="author" content="Alex Swensen" />
 	<meta name="robots" content="index, follow" />
 	<meta name="googlebot" content="index, follow" />
@@ -49,8 +51,9 @@
 		<Blockquote class="">{post.excerpt}</Blockquote>
 		<p class="text-gray-500 dark:text-gray-400 text-sm">Published: {datePosted}</p>
 		<Hr />
-		<img src={post.image} alt={post.title} class="mx-auto rounded-lg" />
-
+		{#if post.image}
+			<img src={post.image} alt={post.title} class="mx-auto rounded-lg" />
+		{/if}
 		<div>
 			{@html htmlMarkup}
 		</div>
