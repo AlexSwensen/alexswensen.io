@@ -28,5 +28,7 @@ This also has a few drawbacks:
 - I have to pay for hosting.
 - It doesn't look the same as it did before... this is a work in progress. My main goal is to get something functional, and then make it look pretty. For that reason I have not yet added the ability to comment on posts, or some of the nice little looks that the old site had. I will get there, but I wanted to get something up and running first.
 
+You can still visit the old site at [old.alexswensen.io](https://old.alexswensen.io) for a little while longer. I will eventually take it down, but I want to make sure everything is working here first.
+
 Anyway, as a momento to the old site, here is a picture of what once was. I hope you like the new one!
 ![Picture of the Old Site](/img/old-site.png)
