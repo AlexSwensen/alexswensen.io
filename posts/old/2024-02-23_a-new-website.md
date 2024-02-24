@@ -3,7 +3,7 @@ layout: post
 title: 'A new website!'
 author: [Alexander Swensen]
 tags: ['Linux', 'Apple']
-date: '2024-12-09T14:00:00-05:00'
+date: '2024-02-23T18:00:00-05:00'
 draft: false
 excerpt: Gatsby was showing its age, and I wanted to do more...
 ---
