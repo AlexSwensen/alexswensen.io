@@ -31,6 +31,6 @@
 </svelte:head>
 
 <Nav />
-<div class="p-6 text-black dark:text-white h-full md:p-10">
+<div class="mx-auto h-full max-w-4xl px-6 py-6 text-black dark:text-white md:py-10 lg:px-0">
 	<slot />
 </div>

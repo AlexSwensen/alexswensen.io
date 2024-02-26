@@ -45,11 +45,11 @@
 
 <div class="">
 	<article
-		class="prose prose-gray mx-auto max-w-4xl break-words text-pretty dark:text-white dark:prose-p:text-white dark:prose-headings:text-white dark:prose-strong:text-white dark:prose-code:text-white dark:prose-a:text-white prose-img:mx-auto"
+		class="prose prose-gray mx-auto max-w-4xl text-pretty break-words prose-img:mx-auto dark:text-white dark:prose-headings:text-white dark:prose-p:text-white dark:prose-a:text-white dark:prose-strong:text-white dark:prose-code:text-white"
 	>
 		<Heading size="2xl">{post.title}</Heading>
 		<Blockquote class="">{post.excerpt}</Blockquote>
-		<p class="text-gray-500 dark:text-gray-400 text-sm">Published: {datePosted}</p>
+		<p class="text-sm text-gray-500 dark:text-gray-400">Published: {datePosted}</p>
 		<Hr />
 		{#if post.image}
 			<img src={post.image} alt={post.title} class="mx-auto rounded-lg" />
