@@ -16,9 +16,10 @@
 		</NavBrand>
 		<NavHamburger />
 		<NavUl {activeUrl} class="ml-auto">
-			<NavLi href="/">Home</NavLi>
-			<NavLi href="/about">About</NavLi>
-			<NavLi href="/blog">Blog</NavLi>
+			<NavLi href="/" data-sveltekit-prefetch>Home</NavLi>
+			<NavLi href="/blog" data-sveltekit-prefetch>Blog</NavLi>
+			<NavLi href="/about" data-sveltekit-prefetch>About</NavLi>
+
 			<!-- <NavLi href="/resume">Resume</NavLi> -->
 			<!-- <NavLi href="/contact">Contact</NavLi> -->
 		</NavUl>

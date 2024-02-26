@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Heading, P } from 'flowbite-svelte';
+	import { Heading, Hr, P } from 'flowbite-svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -39,11 +39,16 @@
 	<link rel="shortcut icon" href="/images/favicon.ico" />
 </svelte:head>
 
+<Heading size="2xl">Alex Swensen's Blog</Heading>
+<Hr />
+<P size="xl">Recent Posts:</P>
 <div>
 	{#each posts as post}
 		<div class="py-4">
-			<a class="text-lg font-bold underline hover:text-blue-600" href="/blog/{post.slug}"
-				>{post.title}</a
+			<a
+				class="text-lg font-bold underline hover:text-blue-600"
+				data-sveltekit-prefetch
+				href="/blog/{post.slug}">{post.title}</a
 			>
 			<P class="pb-2">{datePosted(post.date)}</P>
 			<P>{post.excerpt}</P>
