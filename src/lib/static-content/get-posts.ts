@@ -10,34 +10,29 @@ export default async () => {
 
 async function getMarkdownFiles(dir: string) {
 	const files = await fs.promises.readdir(dir);
-	const markdownFiles = [];
 
-	for (const file of files) {
-		const filePath = path.join(dir, file);
-		const stats = await fs.promises.stat(filePath);
+	const stats = await Promise.all(files.map((file) => fs.promises.stat(path.join(dir, file))));
 
-		if (stats.isFile() && path.extname(file) === '.md') {
-			markdownFiles.push(filePath);
-		}
-	}
+	const markdownFiles = files
+		.filter((file, index) => stats[index].isFile() && path.extname(file) === '.md')
+		.map((file) => path.join(dir, file));
 
 	return markdownFiles;
 }
 
 async function readMarkdownFiles() {
 	const files = await getMarkdownFiles(path.join(process.cwd(), './posts/old'));
-	const posts = [];
+	const postsPromises = files.map((file) => fs.promises.readFile(file, 'utf-8'));
+	const postsContent = await Promise.all(postsPromises);
 
-	for (const file of files) {
-		const content = await fs.promises.readFile(file, 'utf-8');
+	const posts = postsContent.map((content, index) => {
 		const { data, content: markdownContent } = matter(content);
-		const post = {
+		return {
 			...data,
-			slug: path.basename(file).replace('.md', ''),
+			slug: path.basename(files[index]).replace('.md', ''),
 			content: markdownContent
 		};
-		posts.push(post);
-	}
+	});
 
 	return posts;
 }
