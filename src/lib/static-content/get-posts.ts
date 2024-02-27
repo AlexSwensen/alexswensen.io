@@ -8,7 +8,13 @@ export default async () => {
 	};
 };
 
-async function getMarkdownFiles(dir: string) {
+/**
+ * Scan the directory and return the markdown filepaths found.
+ *
+ * @param {string} dir {string} The directory to scan.
+ * @return {*}  {Promise<string[]>}
+ */
+async function getMarkdownFiles(dir: string): Promise<string[]> {
 	const files = await fs.promises.readdir(dir);
 
 	const stats = await Promise.all(files.map((file) => fs.promises.stat(path.join(dir, file))));
@@ -20,6 +26,11 @@ async function getMarkdownFiles(dir: string) {
 	return markdownFiles;
 }
 
+/**
+ * Read the markdown files and return the frontmatter and content.
+ *
+ * @return {*}  {Promise<any[]>}
+ */
 async function readMarkdownFiles() {
 	const files = await getMarkdownFiles(path.join(process.cwd(), './posts/old'));
 	const postsPromises = files.map((file) => fs.promises.readFile(file, 'utf-8'));
