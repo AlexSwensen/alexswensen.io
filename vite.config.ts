@@ -28,6 +28,9 @@ if (sentryAuthToken && org && project) {
 
 export default defineConfig({
 	plugins: [sveltekit(), compileTime(), ...plugins],
+	optimizeDeps: {
+		exclude: ['oslo']
+	},
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}'],
 		globals: true,

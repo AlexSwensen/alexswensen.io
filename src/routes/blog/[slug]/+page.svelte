@@ -38,4 +38,5 @@
 
 <div class="">
 	<Post {post} />
+	
 </div>
