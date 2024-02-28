@@ -4,6 +4,9 @@
 	"[svelte]": {
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
-	"cSpell.words": ["dompurify", "flowbite", "tailwindcss"]
+	"cSpell.words": ["dompurify", "flowbite", "tailwindcss"],
+	"[prisma]": {
+		"editor.defaultFormatter": "Prisma.prisma"
+	}
 	// "vitest.commandLine": "npm run test:unit"
 }

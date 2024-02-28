@@ -1,8 +1,12 @@
 // src/lib/server/auth.ts
 import { Lucia } from 'lucia';
+import { BetterSqlite3Adapter } from '@lucia-auth/adapter-sqlite';
 import { dev } from '$app/environment';
+import { PrismaAdapter } from '@lucia-auth/adapter-prisma';
 
-const adapter = new BetterSQLite3Adapter(db); // your adapter
+import { client } from './db';
+
+const adapter = new PrismaAdapter(client.session, client.user);
 
 export const lucia = new Lucia(adapter, {
 	sessionCookie: {
