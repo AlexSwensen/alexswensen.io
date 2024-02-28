@@ -1,17 +1,10 @@
 <script lang="ts">
 	import { Heading, Hr, P } from 'flowbite-svelte';
 	import type { PageData } from './$types';
+	import PostCard from '$lib/components/PostCard/PostCard.svelte';
 
 	export let data: PageData;
 	const posts = data.posts;
-
-	const datePosted = (date: string) => {
-		return new Date(date).toLocaleDateString(undefined, {
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric'
-		});
-	};
 </script>
 
 <svelte:head>
@@ -36,14 +29,6 @@
 <P size="xl">Recent Posts:</P>
 <div>
 	{#each posts as post}
-		<div class="py-4">
-			<a
-				class="text-lg font-bold underline hover:text-blue-600"
-				data-sveltekit-prefetch
-				href="/blog/{post.slug}">{post.title}</a
-			>
-			<P class="pb-2">{datePosted(post.date)}</P>
-			<P>{post.excerpt}</P>
-		</div>
+		<PostCard {post} />
 	{/each}
 </div>
