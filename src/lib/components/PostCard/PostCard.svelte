@@ -12,12 +12,23 @@
 	};
 </script>
 
-<div class="py-4">
-	<a
-		class="text-lg font-bold underline hover:text-blue-600"
-		data-sveltekit-prefetch
-		href="/blog/{post.slug}">{post.title}</a
-	>
-	<P class="pb-2">{datePosted(post.date)}</P>
-	<P>{post.excerpt}</P>
+<div class="m-auto py-2">
+	<a class="hover:cursor-pointer" data-sveltekit-prefetch href="/blog/{post.slug}">
+		<div class="gap-4 md:flex">
+			<!-- {#if post.image}
+				<img
+					class="h-64 w-full max-w-sm rounded-lg object-cover object-center"
+					src={post.image}
+					alt={post.title}
+				/>
+			{:else}
+				<div class="w-full max-w-sm"></div>
+			{/if} -->
+			<div>
+				<span class="text-lg font-bold underline hover:text-blue-600">{post.title}</span>
+				<P class="pb-2">{datePosted(post.date)}</P>
+				<P>{post.excerpt}</P>
+			</div>
+		</div>
+	</a>
 </div>
