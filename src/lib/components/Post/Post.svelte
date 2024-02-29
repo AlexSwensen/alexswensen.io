@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { formatRelative } from 'date-fns';
 	import { Blockquote, Heading, Hr, P } from 'flowbite-svelte';
+	import { Image } from '@unpic/svelte';
 
 	import { marked } from 'marked';
 	import DOMPurify from 'isomorphic-dompurify';
@@ -20,7 +21,14 @@
 	<p class="text-sm text-gray-500 dark:text-gray-400">Published: {datePosted}</p>
 	<Hr />
 	{#if post.image}
-		<img src={post.image} alt={post.title} class="mx-auto rounded-lg" />
+		<Image
+			src={post.image}
+			alt={post.title}
+			class="mx-auto rounded-lg"
+			layout="fullWidth"
+			background="auto"
+			priority
+		/>
 	{/if}
 	<div>
 		{@html htmlMarkup}

@@ -121,9 +121,12 @@ devDependencies:
   prettier-plugin-tailwindcss:
     specifier: ^0.5.11
     version: 0.5.11(prettier-plugin-svelte@3.2.2)(prettier@3.2.5)
+<<<<<<< HEAD
   prisma:
     specifier: ^5.10.2
     version: 5.10.2
+=======
+>>>>>>> main
   sass:
     specifier: ^1.71.1
     version: 1.71.1
