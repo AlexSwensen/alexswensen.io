@@ -8,7 +8,7 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_USER: alex
-      POSTGRES_PASSWORD: strongpassword # Change this to something more secure in production (duh :-))
+      POSTGRES_PASSWORD: ${PRIVATE_DB_PASSWORD} # Change this to something more secure in production (duh :-))
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -17,7 +17,7 @@ services:
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: alex@alexswensen.io
-      PGADMIN_DEFAULT_PASSWORD: strongpassword # Change this to something more secure in production (duh :-))
+      PGADMIN_DEFAULT_PASSWORD: ${PRIVATE_DB_PASSWORD} # Change this to something more secure in production (duh :-))
     ports:
       - 8080:80
     volumes:
