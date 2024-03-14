@@ -15,9 +15,9 @@
 		"format": "prettier --plugin-search-dir . --write .",
 		"playwright:ci": "playwright test",
 		"playwright:ui": "playwright test --ui",
-		"studio": "drizzle-kit studio --config drizzle.config.ts",
-		"generate": "drizzle-kit generate:pg --config drizzle.config.ts",
-		"migrate": "drizzle-kit push:pg --config drizzle.config.ts"
+		"drizzle:studio": "drizzle-kit studio --config drizzle.config.ts",
+		"drizzle:generate": "drizzle-kit generate:pg --config drizzle.config.ts",
+		"drizzle:migrate": "drizzle-kit push:pg --config drizzle.config.ts"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.42.1",

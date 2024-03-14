@@ -8,6 +8,7 @@ I may also change it to Astro, but I'm not sure yet. We shall see...
 **Just a quick note to get started, the default password for most of this project is `L3tM3In!`.**
 
 This is intentional for easy local development and pull requests.
+
 > An easy way to remember is to think of the phrase "Let me in!" but with the `e` replaced with `3`.
 
 ### Prerequisites
@@ -21,23 +22,24 @@ This is intentional for easy local development and pull requests.
 1. Clone the repository
 1. Install the dependencies
 
-    ```bash
-    pnpm install
-    ```
+   ```bash
+   pnpm install
+   ```
 
 1. Copy the `.env.example` file to `.env` and fill in the necessary environment variables
 
-    ```bash
-    cp .env.example .env
-    ```
+   ```bash
+   cp .env.example .env
+   ```
 
 1. Start the development server
-    ```bash
-    docker compose up -d
-    #TODO(@AlexSwensen): seed the database once the database is a thing...
-    
-    pnpm run dev
-    ```
+
+   ```bash
+   docker compose up -d
+   #TODO(@AlexSwensen): seed the database once the database is a thing...
+   pnpm run drizzle:migrate
+   pnpm run dev
+   ```
 
 ### Shutting down the development server
 
@@ -47,7 +49,6 @@ you can shut down the development server with the following command:
 ```bash
 docker compose down
 ```
-
 
 # create-svelte
 
