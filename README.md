@@ -1,6 +1,7 @@
 # alexswensen.io
 
 This is the source code for my personal website, [alexswensen.io](https://alexswensen.io). It is built using [SvelteKit](https://kit.svelte.dev/).
+I may also change it to Astro, but I'm not sure yet. We shall see...
 
 ## Development
 
@@ -13,19 +14,30 @@ This is intentional for easy local development and pull requests.
 
 - [Node.js](https://nodejs.org/en/) (v20 or later)
 - [pnpm](https://pnpm.io/) (v8 or later)
-- [Docker](https://www.docker.com/) (v25 or later)
+- [Docker](https://www.docker.com/) (v25 or later) - Docker Desktop v4.28+ is also acceptable
 
 ### Getting started
 
 1. Clone the repository
-2. Install the dependencies
-3. Start the development server
+1. Install the dependencies
 
-```bash
-docker compose up -d
-pnpm install
-pnpm run dev
-```
+    ```bash
+    pnpm install
+    ```
+
+1. Copy the `.env.example` file to `.env` and fill in the necessary environment variables
+
+    ```bash
+    cp .env.example .env
+    ```
+
+1. Start the development server
+    ```bash
+    docker compose up -d
+    #TODO(@AlexSwensen): seed the database once the database is a thing...
+    
+    pnpm run dev
+    ```
 
 ### Shutting down the development server
 
