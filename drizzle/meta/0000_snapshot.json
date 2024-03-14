@@ -1,5 +1,5 @@
 {
-  "id": "4e992578-9a7f-4ea7-9dc1-119d909b05c8",
+  "id": "51245489-65c3-415f-a0f6-cf3c7994c7f0",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -36,13 +36,15 @@
           "name": "created_at",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "default": "now()"
         },
         "updated_at": {
           "name": "updated_at",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "default": "now()"
         }
       },
       "indexes": {},
