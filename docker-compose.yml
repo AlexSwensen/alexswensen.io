@@ -3,9 +3,9 @@ version: '3.8'
 services:
   db:
     image: postgres
-    restart: always
+    restart: no
     ports:
-      - "5432:5432"
+      - '5432:5432'
     environment:
       POSTGRES_USER: alex
       POSTGRES_PASSWORD: ${PRIVATE_DB_PASSWORD} # Change this to something more secure in production (duh :-))
@@ -14,7 +14,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4
-    restart: always
+    restart: no
     environment:
       PGADMIN_DEFAULT_EMAIL: alex@alexswensen.io
       PGADMIN_DEFAULT_PASSWORD: ${PRIVATE_DB_PASSWORD} # Change this to something more secure in production (duh :-))
