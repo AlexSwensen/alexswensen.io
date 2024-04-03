@@ -1,5 +1,5 @@
 import { db } from '$lib/db/db.server';
-import { users } from '$lib/db/schema/users';
+import { userTable } from '$lib/db/schema/users';
 import { json, type RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async () => {
