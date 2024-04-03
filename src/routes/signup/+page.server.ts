@@ -7,6 +7,7 @@ import { Argon2id } from 'oslo/password';
 import type { Actions } from './$types';
 import { db } from '$lib/db/db.server';
 import { userTable } from '$lib/db/schema/users';
+import { userExists } from '$lib/db/users';
 
 export const actions: Actions = {
 	default: async (event) => {
@@ -36,21 +37,36 @@ export const actions: Actions = {
 		const userId = generateId(15);
 		const hashedPassword = await new Argon2id().hash(password);
 
-		// TODO: check if username is already used
-		await db.insert(userTable).values({
-			id: userId,
-			name: username,
-			email: username,
-			hashedPassword
-		});
+		const existingUser = await userExists(username);
+		if (existingUser) {
+			return fail(400, {
+				failure: true,
+				message: 'Username already exists'
+			});
+		} else {
+			try {
+				await db.insert(userTable).values({
+					id: userId,
+					name: username,
+					email: username,
+					hashedPassword
+				});
+			} catch (e) {
+				console.error(e);
+				return fail(500, {
+					failure: true,
+					message: 'Internal server error'
+				});
+			}
 
-		const session = await lucia.createSession(userId, {});
-		const sessionCookie = lucia.createSessionCookie(session.id);
-		event.cookies.set(sessionCookie.name, sessionCookie.value, {
-			path: '.',
-			...sessionCookie.attributes
-		});
+			const session = await lucia.createSession(userId, {});
+			const sessionCookie = lucia.createSessionCookie(session.id);
+			event.cookies.set(sessionCookie.name, sessionCookie.value, {
+				path: '.',
+				...sessionCookie.attributes
+			});
 
-		redirect(302, '/');
+			redirect(302, '/');
+		}
 	}
 };
