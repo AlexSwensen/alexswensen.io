@@ -4,7 +4,7 @@
 	"[svelte]": {
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
-	"cSpell.words": ["dompurify", "flowbite", "tailwindcss"],
+	"cSpell.words": ["dompurify", "flowbite", "tailwindcss", "unpic"],
 	"[prisma]": {
 		"editor.defaultFormatter": "Prisma.prisma"
 	}
