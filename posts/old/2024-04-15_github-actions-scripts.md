@@ -60,9 +60,13 @@ jobs:
             console.log('Hello, world!')
 ```
 
-This is where things start to get fun. I would highly recommend reading up on the documentation for the `actions/github-script` action, as it is very powerful. You can use it to interact with the Github API, and do all sorts of cool things.
+This is where things start to get fun. I would highly recommend reading up on the [documentation](https://github.com/actions/github-script) for the `actions/github-script` action, as it is very powerful. You can use it to interact with the Github API, and do all sorts of cool things.
 
-Finally,  if you are using ECMAScript modules, you can use the built in `import()` function to import modules and call scripts built within your repository. This is my favorite way to write scripts in Github actions, as it allows me to write my scripts in a modular way, keep them organized, and allows for easy local debugging, while still deploying them in a CI/CD environment.
+Finally,  if you are using ECMAScript modules, you can use the built in `import()` function to import modules and call scripts built within your repository. (you could use require if you are using commonJS).
+
+Note: be sure to add `type: module` to your `package.json` file if you are using ECMAScript modules.
+
+This is my favorite way to write scripts in Github actions, as it allows me to write my scripts in a modular way, keep them organized, and allows for easy local debugging, while still deploying them in a CI/CD environment.
 
 ```yaml
 name: My Workflow
