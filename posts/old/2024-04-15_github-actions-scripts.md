@@ -77,12 +77,49 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run a script
+      - name: Run a script from a module in the repository
         uses: actions/github-script@v7
         with:
           script: |
             const myScript = await import('${{ github.workspace }}/my-script.js')
             myScript();
+```
+
+```javascript
+// my-script.js
+export function myScript() {
+  console.log('Hello, world!');
+}
+```
+
+You can also use the return value of the script in your workflow. Just be sure the step that runs your script has an id. Here is an example of how you can do that:
+
+```yaml
+
+name: My Workflow
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a script from a module in the repository
+        id: my-script
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const myScript = await import('${{ github.workspace }}/my-script.js')
+            return myScript();
+      - name: Get the return value of the script
+        run: echo "${{ steps.my-script.outputs.result }}"
+```
+
+```javascript
+// my-script.js
+export function myScript() {
+  return 'Hello, world!';
+}
 ```
 
 I hope this helps you get started with Github actions, and I hope you enjoy writing your scripts in javascript as much as I do!
