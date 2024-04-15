@@ -3,7 +3,7 @@ layout: post
 title: 'Github Actions Scripts'
 author: [Alexander Swensen]
 tags: ['Linux', 'Apple']
-date: '2024-04-10T17:13:00-05:00'
+date: '2024-04-15T17:13:00-05:00'
 draft: false
 excerpt: Because there are few things better than inline javascript in your automations!
 ---
@@ -60,3 +60,25 @@ jobs:
             console.log('Hello, world!')
 ```
 
+This is where things start to get fun. I would highly recommend reading up on the documentation for the `actions/github-script` action, as it is very powerful. You can use it to interact with the Github API, and do all sorts of cool things.
+
+Finally,  if you are using ECMAScript modules, you can use the built in `import()` function to import modules and call scripts built within your repository. This is my favorite way to write scripts in Github actions, as it allows me to write my scripts in a modular way, keep them organized, and allows for easy local debugging, while still deploying them in a CI/CD environment.
+
+```yaml
+name: My Workflow
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a script
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const myScript = await import('${{ github.workspace }}/my-script.js')
+            myScript();
+```
+
+I hope this helps you get started with Github actions, and I hope you enjoy writing your scripts in javascript as much as I do!
