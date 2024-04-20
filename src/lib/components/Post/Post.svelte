@@ -3,12 +3,24 @@
 	import { Blockquote, Heading, Hr, P } from 'flowbite-svelte';
 	import { Image } from '@unpic/svelte';
 
-	import { marked } from 'marked';
+	import { Marked } from 'marked';
 	import DOMPurify from 'isomorphic-dompurify';
+	import { markedHighlight } from 'marked-highlight';
+	import hljs from 'highlight.js';
 
 	export let post: any; // TODO: Type this
 
 	const datePosted = formatRelative(new Date(post.date), new Date());
+
+	const marked = new Marked(
+		markedHighlight({
+			langPrefix: 'hljs language-',
+			highlight(code, lang, info) {
+				const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+				return hljs.highlight(code, { language }).value;
+			}
+		})
+	);
 
 	const htmlMarkup = DOMPurify.sanitize(marked.parse(post.content) as string);
 </script>

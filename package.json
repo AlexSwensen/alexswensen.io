@@ -69,9 +69,11 @@
 		"drizzle-orm": "^0.30.7",
 		"isomorphic-dompurify": "^2.6.0",
 		"lucia": "^3.1.1",
-		"marked": "^12.0.1",
 		"oslo": "^1.2.0",
-		"postgres": "^3.4.4"
+		"postgres": "^3.4.4",
+		"highlight.js": "^11.9.0",
+		"marked": "^12.0.2",
+		"marked-highlight": "^2.1.1"
 	},
 	"packageManager": "pnpm@8.15.6+sha256.01c01eeb990e379b31ef19c03e9d06a14afa5250b82e81303f88721c99ff2e6f"
 }
