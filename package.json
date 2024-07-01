@@ -59,7 +59,7 @@
 		"@sentry/node": "^7.106.1",
 		"@sentry/svelte": "^7.106.1",
 		"@sentry/tracing": "^7.106.1",
-		"@unpic/svelte": "^0.0.51",
+		"@unpic/svelte": "^0.0.53",
 		"@vercel/analytics": "^1.2.2",
 		"date-fns": "^3.4.0",
 		"highlight.js": "^11.9.0",
