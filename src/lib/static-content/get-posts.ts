@@ -32,7 +32,7 @@ async function getMarkdownFiles(dir: string): Promise<string[]> {
  * @return {*}  {Promise<any[]>}
  */
 async function readMarkdownFiles() {
-	const files = await getMarkdownFiles(path.join(process.cwd(), './posts/old'));
+	const files = await getMarkdownFiles(path.join(process.cwd(), './posts'));
 	const postsPromises = files.map((file) => fs.promises.readFile(file, 'utf-8'));
 	const postsContent = await Promise.all(postsPromises);
 
