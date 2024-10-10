@@ -9,6 +9,8 @@ draft: false
 excerpt: Because for some reason it isn't setup by default...
 ---
 
+> Edit Oct 10, 2024: This post is a bit outdated. I would recommend using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) by Microsoft. It is much more stable and has better support for Python3. None of the following changes should be necessary, but I will leave them here for posterity and in case you are dealing with issues.
+
 So recently while working on a project I have transitioned into doing a lot more work in our Flask based backend. I think I have been spoiled by the amount of intellisense that is built into TypeScript, because working without it in Python3 is _not_ pleasant. At one point it worked perfectly fine with the VSCode Python extension installed, and sometimes I would install the [importmagic](https://marketplace.visualstudio.com/items?itemName=brainfit.vscode-importmagic) extension as well to get imports to work. Well not so much anymore. So I spent a few hours trying to figure this out.
 
 Turns out the native Python extension tries to use `jedi` for intellisense, but (at least in my configuration) it doesn't seem to work. Thankfully there is another alternative. Microsoft also develops the `python-language-server` package for vscode. In order to enable it you have to disable Jedi.
@@ -33,18 +35,18 @@ Assuming your team has embraced vscode, and you have both `.vscode/extensions.js
 ```json
 // extensions.json
 {
-  "recommendations": [
-      "ms-python.python",  // Python
-      "visualstudioexptteam.vscodeintellicode" // python ai assisted intellicode and python language server
-  ]
+	"recommendations": [
+		"ms-python.python", // Python
+		"visualstudioexptteam.vscodeintellicode" // python ai assisted intellicode and python language server
+	]
 }
 ```
 
 ```json
 // settings.json
 {
-    "python.jediEnabled": false,
-    "vsintellicode.python.completionsEnabled": true
+	"python.jediEnabled": false,
+	"vsintellicode.python.completionsEnabled": true
 }
 ```
 
