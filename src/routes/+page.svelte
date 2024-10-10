@@ -38,3 +38,10 @@
 	<li>Flowbite Svelte</li>
 	<li>SCSS</li>
 </List>
+
+<p class="py-4">
+	This site is under construction, but you can checkout my blog posts <a
+		href="/blog"
+		class="underline">here</a
+	>.
+</p>
