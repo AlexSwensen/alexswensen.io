@@ -16,7 +16,10 @@
 <Heading tag="h3" class="py-3">Favorite Languages, Frameworks, and Practices</Heading>
 <List>
 	<li>TypeScript (Because types!)</li>
-	<li>Angular</li>
+	<li>
+		<span class="line-through">Angular</span> - Honestly don't start a new project in Angular. There
+		are better alternatives out there.
+	</li>
 	<li>React</li>
 	<li>VueJS</li>
 	<li>Python</li>
