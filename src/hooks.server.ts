@@ -1,5 +1,3 @@
-import { NODE_ENV } from '$env/static/private';
-import { PUBLIC_SENTRY_DSN } from '$env/static/public';
 import { redirectMap } from '$lib/services/redirects';
 import * as SentryNode from '@sentry/node';
 import '@sentry/tracing';
@@ -7,13 +5,13 @@ import type { HandleServerError, Handle } from '@sveltejs/kit';
 import { redirect } from '@sveltejs/kit';
 import { URL } from 'url';
 
-const sentryEnabled = PUBLIC_SENTRY_DSN;
+const sentryEnabled = import.meta.env.PUBLIC_SENTRY_DSN;
 
 if (sentryEnabled) {
 	SentryNode.init({
-		dsn: PUBLIC_SENTRY_DSN,
+		dsn: import.meta.env.PUBLIC_SENTRY_DSN,
 		tracesSampleRate: 1.0,
-		environment: NODE_ENV,
+		environment: import.meta.env.NODE_ENV,
 		// Add the Http integration for tracing
 		integrations: [new SentryNode.Integrations.Http()]
 	});
