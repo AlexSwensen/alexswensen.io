@@ -1,5 +1,5 @@
 {
-	"name": "alexswensen.io-svelte",
+	"name": "alexswensen.io-astro",
 	"version": "0.0.1",
 	"private": true,
 	"engines": {
@@ -7,25 +7,24 @@
 		"pnpm": ">=8"
 	},
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
 		"test": "vitest",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"check": "astro check",
+		"check:watch": "astro check --watch",
 		"prettier:check": "prettier --plugin-search-dir . --check .",
 		"test:e2e": "playwright test",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+			"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"playwright:ci": "playwright test",
 		"playwright:ui": "playwright test --ui"
 	},
 	"devDependencies": {
+		"@astrojs/adapter-auto": "^2.0.0",
+		"@astrojs/vite-plugin": "^2.0.0",
 		"@playwright/test": "^1.45.1",
 		"@sentry/vite-plugin": "^0.7.2",
-		"@sveltejs/adapter-auto": "^3.2.2",
-		"@sveltejs/kit": "^2.5.18",
-		"@sveltejs/vite-plugin-svelte": "^3.1.1",
 		"@tailwindcss/typography": "^0.5.13",
 		"@testing-library/jest-dom": "^6.4.6",
 		"@testing-library/svelte": "^4.2.3",

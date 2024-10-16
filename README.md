@@ -1,7 +1,6 @@
 # alexswensen.io
 
-This is the source code for my personal website, [alexswensen.io](https://alexswensen.io). It is built using [SvelteKit](https://kit.svelte.dev/).
-I may also change it to Astro, but I'm not sure yet. We shall see...
+This is the source code for my personal website, [alexswensen.io](https://alexswensen.io). It is built using [Astro](https://astro.build/).
 
 ## Development
 
@@ -49,9 +48,9 @@ docker compose down
 ```
 
 
-# create-svelte
+# create-astro
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Everything you need to build an Astro project, powered by [`create-astro`](https://astro.build/).
 
 ## Creating a project
 
@@ -59,10 +58,10 @@ If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
 # create a new project in the current directory
-pnpm create svelte@latest
+pnpm create astro@latest
 
 # create a new project in my-app
-pnpm create svelte@latest my-app
+pnpm create astro@latest my-app
 ```
 
 ## Developing
@@ -86,4 +85,4 @@ pnpm run build
 
 You can preview the production build with `pnpm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+> To deploy your app, you may need to install an [adapter](https://docs.astro.build/en/guides/deploy/) for your target environment.
