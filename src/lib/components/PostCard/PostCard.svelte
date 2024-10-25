@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { P } from 'flowbite-svelte';
 
-	export let post: any; // TODO: Type this
+	interface Props {
+		post: any;
+	}
+
+	let { post }: Props = $props();
 
 	const datePosted = (date: string) => {
 		return new Date(date).toLocaleDateString(undefined, {

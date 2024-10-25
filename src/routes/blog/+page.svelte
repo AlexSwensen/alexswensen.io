@@ -3,7 +3,11 @@
 	import type { PageData } from './$types';
 	import PostCard from '$lib/components/PostCard/PostCard.svelte';
 
-	export let data: PageData;
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
 	const posts = data.posts;
 </script>
 

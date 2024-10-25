@@ -2,7 +2,11 @@
 	import type { PageData } from './$types';
 	import Post from '$lib/components/Post/Post.svelte';
 
-	export let data: PageData;
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
 	const post = data;
 </script>
 

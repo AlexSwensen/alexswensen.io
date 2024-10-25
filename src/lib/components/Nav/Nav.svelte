@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { DarkMode, NavBrand, NavHamburger, NavLi, NavUl, Navbar } from 'flowbite-svelte';
 	import NavContainer from 'flowbite-svelte/NavContainer.svelte';
-	$: activeUrl = $page.url.pathname;
+	let activeUrl = $derived($page.url.pathname);
 </script>
 
 <Navbar>

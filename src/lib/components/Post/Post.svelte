@@ -8,7 +8,11 @@
 	import { markedHighlight } from 'marked-highlight';
 	import hljs from 'highlight.js';
 
-	export let post: any; // TODO: Type this
+	interface Props {
+		post: any;
+	}
+
+	let { post }: Props = $props();
 
 	const datePosted = formatRelative(new Date(post.date), new Date());
 
