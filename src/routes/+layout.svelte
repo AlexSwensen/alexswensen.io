@@ -1,5 +1,5 @@
 <script>
-	import '../app.css';
+	import '../app.scss';
 	import Nav from '../lib/components/Nav/Nav.svelte';
 	import Footer from '../lib/components/Footer/Footer.svelte';
 	import { dev } from '$app/environment';
@@ -39,7 +39,7 @@
 </svelte:head>
 
 <Nav />
-<div class="mx-auto h-full max-w-4xl px-6 py-6 text-black md:py-10 lg:px-0 dark:text-white">
+<div class="mx-auto h-full max-w-4xl px-6 py-6 text-black dark:text-white md:py-10 lg:px-0">
 	{@render children?.()}
 	<Footer />
 </div>
