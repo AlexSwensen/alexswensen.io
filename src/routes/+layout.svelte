@@ -1,5 +1,5 @@
 <script>
-	import '../app.scss';
+	import '../app.css';
 	import Nav from '../lib/components/Nav/Nav.svelte';
 	import Footer from '../lib/components/Footer/Footer.svelte';
 	import { dev } from '$app/environment';
