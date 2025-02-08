@@ -14,11 +14,27 @@
 	<title>{post.title}</title>
 	<meta name="description" content={post.excerpt} />
 	<meta name="keywords" content={post.tags.join(', ')} />
+
+	<!-- OpenGraph Tags -->
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={post.title} />
+	<meta property="og:description" content={post.excerpt} />
+	<meta property="og:site_name" content="alexswensen.io" />
+	<meta property="og:url" content={`https://alexswensen.io/blog/${post.slug}`} />
 	{#if post.image}
 		<meta property="og:image" content={post.image} />
+		<meta property="og:image:alt" content={post.title} />
 	{/if}
+
+	<!-- Twitter Card Tags -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={post.title} />
+	<meta name="twitter:description" content={post.excerpt} />
+	{#if post.image}
+		<meta name="twitter:image" content={post.image} />
+		<meta name="twitter:image:alt" content={post.title} />
+	{/if}
+
 	<meta name="author" content="Alex Swensen" />
 	<meta name="robots" content="index, follow" />
 	<meta name="googlebot" content="index, follow" />

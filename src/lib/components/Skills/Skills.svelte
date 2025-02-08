@@ -7,7 +7,11 @@
 			icon: Globe,
 			description: 'React, Next.js, Vue.js, Svelte'
 		},
-		{ name: 'Backend Development', icon: Server, description: 'AWS, Node.js, Express, Django' },
+		{
+			name: 'Backend Development',
+			icon: Server,
+			description: 'AWS, Vercel, Node.js, Express, Django'
+		},
 		{ name: 'Database Management', icon: Database, description: 'SQL, MongoDB, PostgreSQL' },
 		{ name: 'Languages', icon: Code, description: 'Typescript, JavaScript, Python, Go' }
 	];
