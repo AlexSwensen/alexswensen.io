@@ -1,5 +1,5 @@
 <script>
-	import { Code, Database, Globe, Server } from 'lucide-svelte';
+	import { Code, Database, Globe, Server, Cloud } from 'lucide-svelte';
 
 	const skills = [
 		{
@@ -7,7 +7,7 @@
 			icon: Globe,
 			description: 'React, Next.js, Vue.js, Svelte'
 		},
-		{ name: 'Backend Development', icon: Server, description: 'Node.js, Express, Django' },
+		{ name: 'Backend Development', icon: Server, description: 'AWS, Node.js, Express, Django' },
 		{ name: 'Database Management', icon: Database, description: 'SQL, MongoDB, PostgreSQL' },
 		{ name: 'Languages', icon: Code, description: 'Typescript, JavaScript, Python, Go' }
 	];
