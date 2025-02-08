@@ -11,12 +11,14 @@
 		<div class="mx-auto max-w-lg">
 			<img
 				src="/img/me.jpeg?height=150&width=150"
-				alt="Your Name"
+				alt="Alexander Swensen"
 				width="150"
 				height="150"
 				class="mx-auto rounded-full"
 			/>
-			<h1 class="mt-6 text-3xl font-bold text-gray-800 dark:text-white md:text-4xl">Your Name</h1>
+			<h1 class="mt-6 text-3xl font-bold text-gray-800 dark:text-white md:text-4xl">
+				Alexander Swensen
+			</h1>
 			<p class="mt-2 text-gray-600 dark:text-gray-300">Software Engineer</p>
 			<p class="mt-4 text-gray-600 dark:text-gray-300">
 				Passionate about building scalable and efficient software solutions. Experienced in
