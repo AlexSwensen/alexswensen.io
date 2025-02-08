@@ -3,6 +3,7 @@ import { defineConfig } from 'vitest/config';
 import { sentryVitePlugin } from '@sentry/vite-plugin';
 import type { PluginOption } from 'vite';
 import compileTime from 'vite-plugin-compile-time';
+import tailwindcss from '@tailwindcss/vite';
 
 // const isProduction = process.env.NODE_ENV === 'production';
 const sentryAuthToken = process.env.SENTRY_AUTH_TOKEN;
@@ -26,8 +27,10 @@ if (sentryAuthToken && org && project) {
 	);
 }
 
+const pluginOptions: PluginOption[] = [tailwindcss(), sveltekit(), compileTime(), ...plugins];
+
 export default defineConfig({
-	plugins: [sveltekit(), compileTime(), ...plugins],
+	plugins: pluginOptions as any,
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}'],
 		globals: true,
