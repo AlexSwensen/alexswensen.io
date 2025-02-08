@@ -40,6 +40,6 @@
 	<link rel="shortcut icon" href="/images/favicon.ico" />
 </svelte:head>
 
-<div class="">
+<div class="container mx-auto px-6 py-6">
 	<Post {post} />
 </div>

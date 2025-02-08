@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { Alert, Heading, Hr, List, P } from 'flowbite-svelte';
+	import Hero from '$lib/components/Hero/Hero.svelte';
+	import Skills from '$lib/components/Skills/Skills.svelte';
 </script>
 
 <svelte:head>
@@ -24,24 +26,7 @@
 	<meta name="msapplication-config" content="/images/browserconfig.xml" />
 	<meta name="theme-color" content="#000000" />
 </svelte:head>
-
-<Heading>Welcome to alexswensen.io</Heading>
-<Hr />
-<P class="py-4">
-	This is my personal site and blog. I occasionally write things here. This site was built utilizing
-	the following tech stack. I hope you enjoy your stay!
-</P>
-
-<List>
-	<li>SvelteKit</li>
-	<li>TailwindCSS</li>
-	<li>Flowbite Svelte</li>
-	<li>SCSS</li>
-</List>
-
-<p class="py-4">
-	This site is under construction, but you can checkout my blog posts <a
-		href="/blog"
-		class="underline">here</a
-	>.
-</p>
+<div class="bg-gray-900">
+	<Hero />
+	<Skills />
+</div>

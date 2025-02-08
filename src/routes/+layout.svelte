@@ -39,7 +39,7 @@
 </svelte:head>
 
 <Nav />
-<div class="mx-auto h-full max-w-4xl px-6 py-6 text-black dark:text-white md:py-10 lg:px-0">
+<div class="">
 	{@render children?.()}
 	<Footer />
 </div>

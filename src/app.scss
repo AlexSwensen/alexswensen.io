@@ -5,5 +5,10 @@
 @import 'highlight.js/styles/atom-one-dark.css';
 
 html.dark {
-	@apply bg-gray-950;
+	@apply bg-gray-900;
+	@apply text-white;
+}
+
+html {
+	@apply text-black;
 }

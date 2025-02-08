@@ -27,12 +27,13 @@
 	<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5" />
 	<link rel="shortcut icon" href="/favicon.png" />
 </svelte:head>
-
-<Heading size="2xl">Alex Swensen's Blog</Heading>
-<Hr />
-<P size="xl">Recent Posts:</P>
-<div>
-	{#each posts as post}
-		<PostCard {post} />
-	{/each}
+<div class="container mx-auto px-6 py-6">
+	<Heading tag="h1">Alex Swensen's Blog</Heading>
+	<Hr />
+	<P size="xl">Recent Posts:</P>
+	<div>
+		{#each posts as post}
+			<PostCard {post} />
+		{/each}
+	</div>
 </div>
