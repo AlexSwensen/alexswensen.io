@@ -1,5 +1,6 @@
 <script>
 	import { Button } from 'flowbite-svelte';
+	import { TwitterIcon } from 'lucide-svelte';
 
 	// import { Button } from "$lib/components/ui/button";
 	import GithubIcon from 'lucide-svelte/icons/github';
@@ -33,6 +34,11 @@
 				<a href="https://linkedin.com/in/alexswensen" target="_blank" rel="noopener noreferrer">
 					<Button variant="outline" size="icon">
 						<LinkedinIcon class="h-5 w-5" />
+					</Button>
+				</a>
+				<a href="https://x.com/alexswensen_" target="_blank" rel="noopener noreferrer">
+					<Button variant="outline" size="icon">
+						<TwitterIcon class="h-5 w-5" />
 					</Button>
 				</a>
 			</div>
