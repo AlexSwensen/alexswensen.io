@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Carousel from 'svelte-carousel';
 	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
 
 	let carouselComponent: Carousel;
 
@@ -43,7 +42,8 @@
 		timingFunction: 'linear',
 		dots: false,
 		arrows: false,
-		swiping: false
+		swiping: false,
+		infinite: true
 	};
 
 	// Responsive settings
