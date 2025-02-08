@@ -5,7 +5,7 @@
 </script>
 
 <Footer class="bg-white dark:bg-gray-900">
-	<div class="container mx-auto px-6">
+	<div class="container mx-auto px-6 pb-6">
 		<hr class="dark:bg-grey-900 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
 		<div class="sm:flex sm:items-center sm:justify-between">
 			<FooterCopyright

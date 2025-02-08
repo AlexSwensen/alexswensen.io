@@ -2,6 +2,7 @@
 	import { Alert, Heading, Hr, List, P } from 'flowbite-svelte';
 	import Hero from '$lib/components/Hero/Hero.svelte';
 	import Skills from '$lib/components/Skills/Skills.svelte';
+	import CompanyCarousel from '$lib/components/CompanyCarousel/CompanyCarousel.svelte';
 </script>
 
 <svelte:head>
@@ -29,4 +30,5 @@
 <div class="bg-gray-900">
 	<Hero />
 	<Skills />
+	<!-- <CompanyCarousel /> -->
 </div>
