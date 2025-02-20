@@ -11,7 +11,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
-  
+
   if (!post) return {};
 
   const ogImage = post.image || '/images/default-og.png'; // Fallback OG image
@@ -59,7 +59,7 @@ function formatDate(dateString: string) {
   return new Date(dateString).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   });
 }
 
@@ -92,10 +92,7 @@ export default async function BlogPost({ params }: Props) {
             <time dateTime={post.date}>{formatDate(post.date)}</time>
             <div className="flex gap-2">
               {post.tags.map((tag) => (
-                <span 
-                  key={tag} 
-                  className="text-sm bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
-                >
+                <span key={tag} className="text-sm bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
                   {tag}
                 </span>
               ))}
@@ -106,4 +103,4 @@ export default async function BlogPost({ params }: Props) {
       </article>
     </div>
   );
-} 
+}

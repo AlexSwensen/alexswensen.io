@@ -1,7 +1,7 @@
-'use client'
-import Link from "next/link";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { useState } from "react";
+'use client';
+import Link from 'next/link';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { useState } from 'react';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +13,7 @@ export function Header() {
           <Link href="/" className="text-xl font-bold text-primary">
             AlexSwensen.io
           </Link>
-          
+
           {/* Mobile menu button */}
           <button
             className="md:hidden"
@@ -38,9 +38,11 @@ export function Header() {
           </button>
 
           {/* Desktop and Mobile menu */}
-          <ul className={`md:flex md:space-x-6 md:items-center absolute md:relative top-16 md:top-0 left-0 right-0 bg-background/95 md:bg-transparent p-4 md:p-0 border-b md:border-0 ${
-            isMenuOpen ? 'flex' : 'hidden'
-          } flex-col md:flex-row space-y-4 md:space-y-0`}>
+          <ul
+            className={`md:flex md:space-x-6 md:items-center absolute md:relative top-16 md:top-0 left-0 right-0 bg-background/95 md:bg-transparent p-4 md:p-0 border-b md:border-0 ${
+              isMenuOpen ? 'flex' : 'hidden'
+            } flex-col md:flex-row space-y-4 md:space-y-0`}
+          >
             <li>
               <Link href="/" className="hover:text-primary transition-colors block">
                 Home
@@ -69,4 +71,4 @@ export function Header() {
       </nav>
     </header>
   );
-} 
+}

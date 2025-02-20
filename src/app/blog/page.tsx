@@ -12,7 +12,7 @@ function formatDate(dateString: string) {
   return new Date(dateString).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   });
 }
 
@@ -24,7 +24,10 @@ export default async function BlogPage() {
       <h1 className="text-3xl font-bold mb-8">Blog</h1>
       <div className="grid gap-8 md:grid-cols-2">
         {posts.map((post) => (
-          <article key={post.slug} className="border rounded-lg overflow-hidden hover:border-blue-500 transition-colors">
+          <article
+            key={post.slug}
+            className="border rounded-lg overflow-hidden hover:border-blue-500 transition-colors"
+          >
             <Link href={`/blog/${post.slug}`}>
               {post.image && (
                 <div className="relative w-full h-48">
@@ -45,8 +48,8 @@ export default async function BlogPage() {
                 <p className="text-gray-600 dark:text-gray-300 mb-4">{post.excerpt}</p>
                 <div className="flex gap-2 flex-wrap">
                   {post.tags.map((tag) => (
-                    <span 
-                      key={tag} 
+                    <span
+                      key={tag}
                       className="text-sm bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
                     >
                       {tag}
@@ -60,4 +63,4 @@ export default async function BlogPage() {
       </div>
     </div>
   );
-} 
+}

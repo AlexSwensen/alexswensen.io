@@ -62,7 +62,7 @@ jobs:
 
 This is where things start to get fun. I would highly recommend reading up on the [documentation](https://github.com/actions/github-script) for the `actions/github-script` action, as it is very powerful. You can use it to interact with the Github API, and do all sorts of cool things.
 
-Finally,  if you are using ECMAScript modules, you can use the built in `import()` function to import modules and call scripts built within your repository. (you could use require if you are using commonJS).
+Finally, if you are using ECMAScript modules, you can use the built in `import()` function to import modules and call scripts built within your repository. (you could use require if you are using commonJS).
 
 Note: be sure to add `type: module` to your `package.json` file if you are using ECMAScript modules.
 
@@ -95,7 +95,6 @@ export function myScript() {
 You can also use the return value of the script in your workflow. Just be sure the step that runs your script has an id. Here is an example of how you can do that:
 
 ```yaml
-
 name: My Workflow
 on: [push]
 

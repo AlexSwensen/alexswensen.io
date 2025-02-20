@@ -19,12 +19,18 @@ export function Markdown({ content }: MarkdownProps) {
         rehypePlugins={[rehypeRaw, rehypeHighlight, rehypeSlug]}
         components={{
           h1: ({ children }) => <h1 className="scroll-m-20 text-4xl font-bold mb-4">{children}</h1>,
-          h2: ({ children }) => <h2 className="scroll-m-20 text-3xl font-bold mt-8 mb-4">{children}</h2>,
-          h3: ({ children }) => <h3 className="scroll-m-20 text-2xl font-bold mt-6 mb-3">{children}</h3>,
+          h2: ({ children }) => (
+            <h2 className="scroll-m-20 text-3xl font-bold mt-8 mb-4">{children}</h2>
+          ),
+          h3: ({ children }) => (
+            <h3 className="scroll-m-20 text-2xl font-bold mt-6 mb-3">{children}</h3>
+          ),
           p: ({ children, node }) => {
             // Check if the paragraph contains a code block
-            if (node?.children[0]?.type === 'element' && 
-                (node.children[0].tagName === 'pre' || node.children[0].tagName === 'code')) {
+            if (
+              node?.children[0]?.type === 'element' &&
+              (node.children[0].tagName === 'pre' || node.children[0].tagName === 'code')
+            ) {
               return <>{children}</>;
             }
             return <p className="leading-7 mb-4">{children}</p>;
@@ -37,7 +43,12 @@ export function Markdown({ content }: MarkdownProps) {
               {children}
             </pre>
           ),
-          code: ({ inline, className, children, ...props }: { inline?: boolean } & React.HTMLProps<HTMLElement>) => {
+          code: ({
+            inline,
+            className,
+            children,
+            ...props
+          }: { inline?: boolean } & React.HTMLProps<HTMLElement>) => {
             const match = /language-(\w+)/.exec(className || '');
             return inline ? (
               <code className="bg-gray-100 dark:bg-gray-800 rounded px-1" {...props}>
@@ -65,4 +76,4 @@ export function Markdown({ content }: MarkdownProps) {
       </ReactMarkdown>
     </div>
   );
-} 
+}

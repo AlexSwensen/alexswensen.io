@@ -1,6 +1,10 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { Twitter as TwitterIcon, Github as GithubIcon, Linkedin as LinkedinIcon } from 'lucide-react';
+import {
+  Twitter as TwitterIcon,
+  Github as GithubIcon,
+  Linkedin as LinkedinIcon,
+} from 'lucide-react';
 
 const Hero = () => {
   return (

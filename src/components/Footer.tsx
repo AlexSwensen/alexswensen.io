@@ -2,7 +2,9 @@ export function Footer() {
   return (
     <footer className="bg-muted text-muted-foreground py-8 mt-16">
       <div className="container mx-auto px-4 text-center">
-        <p className="text-sm sm:text-base">© {new Date().getFullYear()} Alexander Swensen. All rights reserved.</p>
+        <p className="text-sm sm:text-base">
+          © {new Date().getFullYear()} Alexander Swensen. All rights reserved.
+        </p>
         <div className="mt-4 flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-4">
           <a
             href="https://github.com/AlexSwensen"
@@ -32,4 +34,4 @@ export function Footer() {
       </div>
     </footer>
   );
-} 
+}

@@ -1,49 +1,52 @@
-import Hero from "@/components/Hero";
-import Skills from "@/components/Skills";
-import type { Metadata } from "next";
+import Hero from '@/components/Hero';
+import Skills from '@/components/Skills';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    default: "Alexander Swensen | Software Engineer",
-    template: "%s | Alexander Swensen"
+    default: 'Alexander Swensen | Software Engineer',
+    template: '%s | Alexander Swensen',
   },
-  description: "Software Engineer specializing in full-stack development with expertise in React, Next.js, AWS, and modern web technologies.",
+  description:
+    'Software Engineer specializing in full-stack development with expertise in React, Next.js, AWS, and modern web technologies.',
   keywords: [
-    "Alexander Swensen",
-    "Software Engineer",
-    "Full Stack Developer",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "AWS",
-    "Node.js",
-    "Frontend Development",
-    "Backend Development"
+    'Alexander Swensen',
+    'Software Engineer',
+    'Full Stack Developer',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'AWS',
+    'Node.js',
+    'Frontend Development',
+    'Backend Development',
   ],
-  authors: [{ name: "Alexander Swensen" }],
-  creator: "Alexander Swensen",
+  authors: [{ name: 'Alexander Swensen' }],
+  creator: 'Alexander Swensen',
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://alexswensen.io",
-    title: "Alexander Swensen | Software Engineer",
-    description: "Software Engineer specializing in full-stack development with expertise in React, Next.js, AWS, and modern web technologies.",
-    siteName: "Alexander Swensen Portfolio",
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://alexswensen.io',
+    title: 'Alexander Swensen | Software Engineer',
+    description:
+      'Software Engineer specializing in full-stack development with expertise in React, Next.js, AWS, and modern web technologies.',
+    siteName: 'Alexander Swensen Portfolio',
     images: [
       {
-        url: "/img/me.jpeg",
+        url: '/img/me.jpeg',
         width: 150,
         height: 150,
-        alt: "Alexander Swensen"
-      }
-    ]
+        alt: 'Alexander Swensen',
+      },
+    ],
   },
   twitter: {
-    card: "summary",
-    title: "Alexander Swensen | Software Engineer",
-    description: "Software Engineer specializing in full-stack development with expertise in React, Next.js, AWS, and modern web technologies.",
-    creator: "@alexswensen_",
-    images: ["/img/me.jpeg"]
+    card: 'summary',
+    title: 'Alexander Swensen | Software Engineer',
+    description:
+      'Software Engineer specializing in full-stack development with expertise in React, Next.js, AWS, and modern web technologies.',
+    creator: '@alexswensen_',
+    images: ['/img/me.jpeg'],
   },
   robots: {
     index: true,
@@ -56,14 +59,14 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  metadataBase: new URL("https://alexswensen.io"),
+  metadataBase: new URL('https://alexswensen.io'),
   verification: {
     // Add these if you have them
     // google: "your-google-site-verification",
     // yandex: "your-yandex-verification",
   },
   alternates: {
-    canonical: "/",
+    canonical: '/',
   },
 };
 

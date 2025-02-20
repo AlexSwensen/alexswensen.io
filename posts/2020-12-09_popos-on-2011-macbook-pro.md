@@ -20,9 +20,9 @@ Or does it?
 
 Well 20 years ago you would be correct. These days many variants of Linux come with a lot of polish, and a really easy to use interface. A lot come with something similar to an "App Store" where you can search for software you want to install. You can also go to most websites and download a version of your favorite software, same as if you were on Windows or macOS.
 
-Traditionally, it has been difficult to get linux running on a mac, but lets give it a shot anyway. I have had good luck with a version called Pop!_OS in the past, so lets try that.
+Traditionally, it has been difficult to get linux running on a mac, but lets give it a shot anyway. I have had good luck with a version called Pop!\_OS in the past, so lets try that.
 
-Lets head over to the [Pop!_OS](https://pop.system76.com/) website. Click on Download. At the time of writing, Pop!_OS 20.10 is the latest version, so lets use that. My mac doesn't have an NVIDIA card in it, so I will use the normal version. Lets click on Download 20.10.
+Lets head over to the [Pop!\_OS](https://pop.system76.com/) website. Click on Download. At the time of writing, Pop!\_OS 20.10 is the latest version, so lets use that. My mac doesn't have an NVIDIA card in it, so I will use the normal version. Lets click on Download 20.10.
 
 This will download an `iso` file, which is a disk image format. Next we will need a tool to write that onto a USB Drive. (I recommend one that is at least 8GBG in size, but for this I had a 32GB laying around that I used.) - My tool of choice is called [balenaEtcher](https://www.balena.io/etcher/). You can download it from their website.
 
@@ -48,7 +48,7 @@ Next, you will see a boot screen with a countdown. You can either hit enter, or 
 
 If you use a non-standard keyboard, you can select that layout now, and test it out. My keyboard is standard US so I will continue past this screen.
 
-Next we are asked how we want to install Pop!_OS. In my case I want to do a clean install, so I will select that. It also wants to know what drive I want to install on. I only have one in my mac, so I select it.
+Next we are asked how we want to install Pop!\_OS. In my case I want to do a clean install, so I will select that. It also wants to know what drive I want to install on. I only have one in my mac, so I select it.
 
 **The next step will erase everything on your computer. This cannot be reversed.**
 
@@ -69,6 +69,5 @@ Everything looks like its working, but in my case the WiFi card was not working.
 This worked for me, and gave my mac a new lease on life! Hopefully this helps you! If you ever wish to learn more about Pop!\_OS you can head to their [website](https://pop.system76.com/) which is full of useful tips, tricks, and documentation.
 
 EDIT: A few last minute items I want to add. First a friend reached out and asked if other hardware like the webcam, bluetooth, audio, and external display work. I can say confidently that they work great! Next, I think its worth pointing out that you can pickup a pre-owned mac like the one I have on [ebay](https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313&_nkw=2011+macbook+pro&_sacat=0) for anywhere from $50-$200 USD, so if you are looking for a cheap laptop this is a great option!
-
 
 ![my mac running Pop!_OS](/img/late-2011-mbp.jpg)
