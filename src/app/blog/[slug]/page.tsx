@@ -5,11 +5,12 @@ import { Markdown } from '@/components/Markdown';
 import Image from 'next/image';
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
   
   if (!post) return {};
 
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: post.title,
       description: post.excerpt,
       type: 'article',
-      url: `https://alexswensen.io/blog/${post.slug}`,
+      url: `https://alexswensen.io/blog/${slug}`,
       images: [
         {
           url: ogImage,
@@ -41,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       creator: '@alexswensen', // Replace with your Twitter handle
     },
     alternates: {
-      canonical: `https://alexswensen.io/blog/${post.slug}`,
+      canonical: `https://alexswensen.io/blog/${slug}`,
     },
     keywords: post.tags,
   };
@@ -63,7 +64,8 @@ function formatDate(dateString: string) {
 }
 
 export default async function BlogPost({ params }: Props) {
-  const post = await getPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
