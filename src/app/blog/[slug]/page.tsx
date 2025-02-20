@@ -17,9 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = post.image || '/images/default-og.png'; // Fallback OG image
 
   return {
-    title: `${post.title} | Alex Swensen`,
+    title: `${post.title} | Alexander Swensen`,
     description: post.excerpt,
-    authors: [{ name: 'Alex Swensen' }],
+    authors: [{ name: 'Alexander Swensen' }],
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: post.title,
       description: post.excerpt,
       images: [ogImage],
-      creator: '@alexswensen', // Replace with your Twitter handle
+      creator: '@alexswensen_', // Replace with your Twitter handle
     },
     alternates: {
       canonical: `https://alexswensen.io/blog/${slug}`,
