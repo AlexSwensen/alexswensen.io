@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+@import 'highlight.js/styles/github-dark.css';
+
+.markdown {
+  @apply text-black dark:text-white;
+}
+
+.markdown img {
+  @apply max-w-full h-auto my-4 rounded-lg;
+}
+
+.markdown table {
+  @apply w-full border-collapse my-4;
+}
+
+.markdown table th,
+.markdown table td {
+  @apply border border-gray-200 dark:border-gray-700 p-2;
+}
+
+.markdown table th {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.markdown hr {
+  @apply my-8 border-t border-gray-200 dark:border-gray-700;
+}
+
+.markdown code {
+  @apply font-mono text-sm;
+}
+
+.markdown pre {
+  @apply my-4;
+} 
