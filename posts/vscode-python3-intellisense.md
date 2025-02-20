@@ -35,18 +35,18 @@ Assuming your team has embraced vscode, and you have both `.vscode/extensions.js
 ```json
 // extensions.json
 {
-	"recommendations": [
-		"ms-python.python", // Python
-		"visualstudioexptteam.vscodeintellicode" // python ai assisted intellicode and python language server
-	]
+  "recommendations": [
+    "ms-python.python", // Python
+    "visualstudioexptteam.vscodeintellicode" // python ai assisted intellicode and python language server
+  ]
 }
 ```
 
 ```json
 // settings.json
 {
-	"python.jediEnabled": false,
-	"vsintellicode.python.completionsEnabled": true
+  "python.jediEnabled": false,
+  "vsintellicode.python.completionsEnabled": true
 }
 ```
 

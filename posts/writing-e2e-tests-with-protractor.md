@@ -6,7 +6,7 @@ tags: ['Getting Started']
 image: /img/main-image-min.jpg
 date: '2017-06-15T17:12:37-05:00'
 draft: false
-excerpt: "Update 2021: I recommend most people look into Cypress now."
+excerpt: 'Update 2021: I recommend most people look into Cypress now.'
 ---
 
 ## Update 2021
@@ -17,7 +17,7 @@ I recommend most people look into [Cypress](https://www.cypress.io/) now. It's A
 
 The debugging api was broken in node 8 and the protractor team has [decided to take an alternative route for debugging going forward.](https://github.com/angular/protractor/issues/4307#issuecomment-346507942)
 
->## Hard things are hard
+> ## Hard things are hard
 
 Coding is hard. AngularJS makes it easier, but it's still hard. With the
 complexity that AngularJS brings, unit testing can be hard. But the
@@ -27,7 +27,7 @@ Protractor E2E tests.
 
 ## The REPL
 
-There a is piece that is *incredibly* useful when starting your tests,
+There a is piece that is _incredibly_ useful when starting your tests,
 and that is Protractor's
 [Interactive Mode/REPL](https://github.com/angular/protractor/blob/master/docs/debugging.md#testing-out-protractor-interactively).
 
@@ -39,14 +39,14 @@ You run it by running:
 protractor [configFile] [options] --elementExplorer
 ```
 
-**Note**: *if you have a webpack config you might need to point Protractor to the config as well.*
+**Note**: _if you have a webpack config you might need to point Protractor to the config as well._
 
 From there you get a full REPL to enter protractor commands.
 
 You can load your site first by running:
 
 ```ts
-browser.get('http://www.my-domain.org')
+browser.get('http://www.my-domain.org');
 ```
 
 ---
@@ -67,28 +67,28 @@ I personally organize each flow in a `describe` block, with each step as
 a `it` block.
 
 ```javascript
-describe("login flow", function () {
-    it('should load the page', function () {
-        browser.get('https://my-domain.org/login');
-    });
-    it('should fill out login form', function () {
-        // select elements by ng-model
-        element(by.model('user.username')).sendKeys('admin');
-        element(by.model('user.password')).sendKeys('adm1nPassw0rd');
-    });
-    it('should log in', function () {
-        element(by.buttonText('Log In')).click()
-    });
-    it('should be logged in', function() {
-        expect(someCondition).toBe(true);
-    });
+describe('login flow', function () {
+  it('should load the page', function () {
+    browser.get('https://my-domain.org/login');
+  });
+  it('should fill out login form', function () {
+    // select elements by ng-model
+    element(by.model('user.username')).sendKeys('admin');
+    element(by.model('user.password')).sendKeys('adm1nPassw0rd');
+  });
+  it('should log in', function () {
+    element(by.buttonText('Log In')).click();
+  });
+  it('should be logged in', function () {
+    expect(someCondition).toBe(true);
+  });
 });
 ```
 
 Hopefully the above can give you an idea of where to start. If you need
 a complete reference I recommend the [Protractor API Docs](http://www.protractortest.org/#/api)
 
-> ## Ok, I understand how to test, and where docs are. How do I debug this $*!t?
+> ## Ok, I understand how to test, and where docs are. How do I debug this $\*!t?
 
 I'll hit you with some of the not-so-clear bits and pieces. If you look at
 [Debugging Protractor Tests](https://github.com/angular/protractor/blob/master/docs/debugging.md)
@@ -101,7 +101,7 @@ These are your bread and butter of the debugging tools. If you have ever used py
 or `pytest.stack_trace()` you will know how these tools work. Sadly
 protractor doesn't have quite the same level of control, and the naming convention is not what most frontend developers are used to.
 
-*Note:* if you use any of these, you will need to extend the test
+_Note:_ if you use any of these, you will need to extend the test
 timeouts in your `protractor.config.js` file.
 
 ---
@@ -130,7 +130,7 @@ it('should fail to find a non-existent element', function() {
 in the node process.
 
 ```js
-it('should fail to find a non-existent element', function() {
+it('should fail to find a non-existent element', function () {
   browser.get('app/index.html#/form');
 
   // Run this statement before the line which fails. If protractor is run
@@ -160,7 +160,7 @@ are trying to find a problem in Protractor/selenium.
 
 Next is `browser.explore()`. Arguably I find this one of the most useful
 for debugging. Its similar to `browser.pause()` but instead of stepping through, it
-gives you a REPL to control and ***explore*** your app as Protractor would.
+gives you a REPL to control and **_explore_** your app as Protractor would.
 
 ---
 
@@ -169,21 +169,21 @@ gives you a REPL to control and ***explore*** your app as Protractor would.
 Awesome, I'm glad you understood most of that! Here are a few other bits of note.
 
 - If you encounter your tests failing, but debugging doesn't reveal anything obvious,
-you are probably hitting a race condition where the test is running faster than your application.
-This is especially common on CI systems like CircleCI or Jenkins
-where you are running on low resource environments.
-Try throwing a [`browser.sleep(1000)`](http://www.protractortest.org/#/api?view=webdriver.WebDriver.prototype.sleep) in there.
+  you are probably hitting a race condition where the test is running faster than your application.
+  This is especially common on CI systems like CircleCI or Jenkins
+  where you are running on low resource environments.
+  Try throwing a [`browser.sleep(1000)`](http://www.protractortest.org/#/api?view=webdriver.WebDriver.prototype.sleep) in there.
 
-- When debugging, you will be re-running the tests a ***lot***.
-That's just how it works. Be patient. If you have a webpack build
-process, try and make that run as fast as possible. In a large
-application that can take almost as long as the tests.
+- When debugging, you will be re-running the tests a **_lot_**.
+  That's just how it works. Be patient. If you have a webpack build
+  process, try and make that run as fast as possible. In a large
+  application that can take almost as long as the tests.
 
 - Use [`.sendKeys('any-string-here')`](http://www.protractortest.org/#/api?view=webdriver.WebElement.prototype.sendKeys) to fill in forms or perform key event actions.
 - Use [`.clear()`](http://www.protractortest.org/#/api?view=webdriver.WebElement.prototype.clear) to clear a field.
 
 - Try and modularize common steps that you use alot. It will make
-modifying existing tests a lot easier *when* your application changes.
+  modifying existing tests a lot easier _when_ your application changes.
 
 I've linked to these before, but i'll give you two main articles I
 referenced when writing this post.

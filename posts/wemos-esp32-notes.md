@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "\"WeMos\" ESP32 Notes"
+title: '"WeMos" ESP32 Notes'
 author: [Alexander Swensen]
 tags: ['arduino']
 image: /img/wemos.jpg
 date: '2017-10-31T22:19:31-05:00'
 draft: false
-excerpt: "My notes on the fake WeMos branded ESP32."
+excerpt: 'My notes on the fake WeMos branded ESP32.'
 ---
 
 ## If you haven't caught on to the ESP32 yet, you really should.
@@ -17,7 +17,6 @@ for your project in a wonderful little Arduino Compatible package.
 
 After [a little bit of setup](https://github.com/espressif/arduino-esp32#installation-instructions), you are good to go!
 Alternatively, you can also [run Micropython on it](https://github.com/micropython/micropython-esp32).
-
 
 Thats it for ESP32 overview. These are my notes on 1 very specific ESP32 package.
 

@@ -22,7 +22,7 @@ Oh don't get me wrong, the basis of these posts (for now) are still markdown fil
 
 This also has a few drawbacks:
 
-- ~~The main one is going to be painful, but since there will be a backend portion, this site will be __closed source__ at least for now. I am not ready to open source the backend portion of this site. I still wish to have a fully open-source site, but it will remain closed for now. I am sorry about that, but I hope you understand.~~ I have decided to open source the site. You can find it [here](https://github.com/AlexSwensen/alexswensen.io).
+- ~~The main one is going to be painful, but since there will be a backend portion, this site will be **closed source** at least for now. I am not ready to open source the backend portion of this site. I still wish to have a fully open-source site, but it will remain closed for now. I am sorry about that, but I hope you understand.~~ I have decided to open source the site. You can find it [here](https://github.com/AlexSwensen/alexswensen.io).
 - I have to maintain it myself.
 - I am responsible for the security of the site.
 - I have to pay for hosting.
