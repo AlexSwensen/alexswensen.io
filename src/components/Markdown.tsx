@@ -37,7 +37,7 @@ export function Markdown({ content }: MarkdownProps) {
               {children}
             </pre>
           ),
-          code: ({ node, inline, className, children, ...props }) => {
+          code: ({ inline, className, children, ...props }: { inline?: boolean } & React.HTMLProps<HTMLElement>) => {
             const match = /language-(\w+)/.exec(className || '');
             return inline ? (
               <code className="bg-gray-100 dark:bg-gray-800 rounded px-1" {...props}>
