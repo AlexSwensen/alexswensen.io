@@ -25,7 +25,8 @@ A few of the next things on my list are as follows:
 - Add a database to the site - probably based in postgres so i can have an auth system
 - Add a comment system to the site - this way i can have a real conversation with people!
 
-
 I have more ideas, but I'm still working out the details before I announce them!
+
+If you want to checkout the repo, you can do so [here](https://github.com/AlexSwensen/alexswensen.io).
 
 Until next time, happy coding!
