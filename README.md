@@ -1,89 +1,36 @@
-# alexswensen.io
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This is the source code for my personal website, [alexswensen.io](https://alexswensen.io). It is built using [SvelteKit](https://kit.svelte.dev/).
-I may also change it to Astro, but I'm not sure yet. We shall see...
+## Getting Started
 
-## Development
-
-**Just a quick note to get started, the default password for most of this project is `L3tM3In!`.**
-
-This is intentional for easy local development and pull requests.
-> An easy way to remember is to think of the phrase "Let me in!" but with the `e` replaced with `3`.
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/en/) (v20 or later)
-- [pnpm](https://pnpm.io/) (v8 or later)
-- [Docker](https://www.docker.com/) (v25 or later) - Docker Desktop v4.28+ is also acceptable
-
-### Getting started
-
-1. Clone the repository
-1. Install the dependencies
-
-    ```bash
-    pnpm install
-    ```
-
-1. Copy the `.env.example` file to `.env` and fill in the necessary environment variables
-
-    ```bash
-    cp .env.example .env
-    ```
-
-1. Start the development server
-    ```bash
-    docker compose up -d
-    #TODO(@AlexSwensen): seed the database once the database is a thing...
-    
-    pnpm run dev
-    ```
-
-### Shutting down the development server
-
-When you're done working on the project,
-you can shut down the development server with the following command:
+First, run the development server:
 
 ```bash
-docker compose down
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-# create-svelte
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Creating a project
+## Learn More
 
-If you're seeing this, you've probably already done this step. Congrats!
+To learn more about Next.js, take a look at the following resources:
 
-```bash
-# create a new project in the current directory
-pnpm create svelte@latest
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-# create a new project in my-app
-pnpm create svelte@latest my-app
-```
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Developing
+## Deploy on Vercel
 
-Once you've created a project and installed dependencies with `pnpm install` (or `pnpm install` or `yarn`), start a development server:
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-```bash
-pnpm run dev
-
-# or start the server and open the app in a new browser tab
-pnpm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-pnpm run build
-```
-
-You can preview the production build with `pnpm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

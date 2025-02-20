@@ -1,9 +1,0 @@
-{
-	"editor.formatOnSave": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"[svelte]": {
-		"editor.defaultFormatter": "svelte.svelte-vscode"
-	},
-	"cSpell.words": ["dompurify", "flowbite", "tailwindcss"]
-	// "vitest.commandLine": "npm run test:unit"
-}
