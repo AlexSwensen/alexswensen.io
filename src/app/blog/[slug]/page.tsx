@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Markdown } from '@/components/Markdown';
 import Image from 'next/image';
+import '@/styles/markdown.css';
 
 interface Props {
   params: Promise<{ slug: string }>;

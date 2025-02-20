@@ -50,7 +50,7 @@ export default async function BlogPage() {
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-sm bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
+                      className="text-sm bg-gray-600 dark:bg-gray-800 px-2 py-1 rounded text-white"
                     >
                       {tag}
                     </span>

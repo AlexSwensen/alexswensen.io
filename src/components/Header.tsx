@@ -49,11 +49,11 @@ export function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-primary transition-colors block">
-                About
+              <Link href="/blog" className="hover:text-primary transition-colors block">
+                Blog
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/projects" className="hover:text-primary transition-colors block">
                 Projects
               </Link>
@@ -62,7 +62,7 @@ export function Header() {
               <Link href="/contact" className="hover:text-primary transition-colors block">
                 Contact
               </Link>
-            </li>
+            </li> */}
             <li>
               <ThemeToggle />
             </li>
