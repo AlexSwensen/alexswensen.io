@@ -2,16 +2,22 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Setup pnpm:
+
+```bash
+curl -fsSL https://pnpm.io/install.sh | sh
+```
+
+Install dependencies:
+
+```bash
+pnpm install
+```
+
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
