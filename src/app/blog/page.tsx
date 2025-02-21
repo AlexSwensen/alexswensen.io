@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: 'Thoughts and writings on software development, technology, and more.',
 };
 
+export const dynamic = 'force-static';
+export const revalidate = 3600; // revalidate every hour
+
 function formatDate(dateString: string) {
   return new Date(dateString).toLocaleDateString('en-US', {
     year: 'numeric',
