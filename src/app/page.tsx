@@ -1,6 +1,5 @@
 import Hero from '@/components/Hero';
 import Skills from '@/components/Skills';
-import { getServerSession } from 'next-auth';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -72,15 +71,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const session = await getServerSession();
-
   return (
     <div className="flex flex-col gap-16 py-8 md:py-16 w-full">
-      {session?.user && (
-        <div className="text-center">
-          <p>Welcome, {session.user.name || session.user.email}!</p>
-        </div>
-      )}
       <Hero />
       <Skills />
     </div>
