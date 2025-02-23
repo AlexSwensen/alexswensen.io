@@ -4,6 +4,8 @@ import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import SessionProvider from '@/components/SessionProvider';
+import { getServerSession } from 'next-auth';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -38,21 +40,24 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerSession();
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background antialiased`}
       >
-        <ThemeProvider>
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <SessionProvider session={session}>
+          <ThemeProvider>
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );
