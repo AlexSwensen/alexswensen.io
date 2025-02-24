@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export default async function Home() {
   return (
     <div className="flex flex-col gap-16 py-8 md:py-16 w-full">
       <Hero />

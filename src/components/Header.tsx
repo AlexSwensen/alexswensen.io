@@ -1,10 +1,26 @@
 'use client';
 import Link from 'next/link';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import { useSession, signOut, signIn } from 'next-auth/react';
+import { Button } from './ui/button';
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
+  const session = useSession();
+
+  useEffect(() => {
+    setIsSignedIn(session?.status === 'authenticated');
+  }, [session]);
+
+  const handleSignOut = () => {
+    signOut();
+  };
+
+  const handleSignIn = () => {
+    signIn();
+  };
 
   return (
     <header className="sticky top-0 z-10 backdrop-blur-md bg-background/80 border-b">
@@ -63,9 +79,30 @@ export function Header() {
                 Contact
               </Link>
             </li> */}
+
             <li>
               <ThemeToggle />
             </li>
+            {isSignedIn && (
+              <li>
+                <Button
+                  onClick={handleSignOut}
+                  className="hover:text-primary hover:bg-gray-100 transition-colors block cursor-pointer bg-white text-black dark:bg-gray-900 dark:text-white"
+                >
+                  Sign Out
+                </Button>
+              </li>
+            )}
+            {!isSignedIn && (
+              <li>
+                <Button
+                  onClick={handleSignIn}
+                  className="hover:text-primary hover:bg-gray-100 transition-colors block cursor-pointer bg-white text-black dark:bg-gray-900 dark:text-white"
+                >
+                  Sign In
+                </Button>
+              </li>
+            )}
           </ul>
         </div>
       </nav>
