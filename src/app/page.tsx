@@ -1,5 +1,6 @@
 import Hero from '@/components/Hero';
 import Skills from '@/components/Skills';
+import ContactCTA from '@/components/ContactCTA';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -77,6 +78,7 @@ export default function Home() {
       <div className="flex-grow flex flex-col gap-16 py-8 md:py-16">
         <Hero />
         <Skills />
+        <ContactCTA />
       </div>
     </div>
   );
