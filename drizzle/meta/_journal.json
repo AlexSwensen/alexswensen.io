@@ -8,6 +8,13 @@
       "when": 1740362045047,
       "tag": "0000_furry_harry_osborn",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1740444947465,
+      "tag": "0001_famous_madripoor",
+      "breakpoints": true
     }
   ]
 }
