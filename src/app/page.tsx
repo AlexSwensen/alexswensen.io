@@ -72,9 +72,12 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-16 py-8 md:py-16 w-full">
-      <Hero />
-      <Skills />
+    <div className="relative isolate min-h-screen flex flex-col bg-gradient-to-br from-blue-100 via-white to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_50%,rgba(79,70,229,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_50%,rgba(100,100,255,0.15),transparent_50%)]"></div>
+      <div className="flex-grow flex flex-col gap-16 py-8 md:py-16">
+        <Hero />
+        <Skills />
+      </div>
     </div>
   );
 }
