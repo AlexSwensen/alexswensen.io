@@ -31,7 +31,7 @@ const skills: Skill[] = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="bg-gray-100 py-16 dark:bg-gray-900">
+    <section id="skills" className="relative py-16">
       <div className="container mx-auto px-6">
         <h2 className="mb-8 text-center text-3xl font-bold text-gray-800 dark:text-white">
           Skills
@@ -40,7 +40,10 @@ const Skills = () => {
           {skills.map((skill) => {
             const IconComponent = skill.icon;
             return (
-              <div key={skill.name} className="rounded-lg bg-white p-6 shadow-md dark:bg-gray-800">
+              <div
+                key={skill.name}
+                className="rounded-lg bg-white/50 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/50 dark:ring-white/10 transition-all hover:bg-white/80 dark:hover:bg-gray-800/80"
+              >
                 <IconComponent className="mx-auto mb-4 h-12 w-12 text-blue-500" />
                 <h3 className="mb-2 text-center text-xl font-semibold text-gray-800 dark:text-white">
                   {skill.name}

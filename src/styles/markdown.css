@@ -34,6 +34,11 @@ html {
   .markdown pre {
     @apply my-4;
   }
+
+  header {
+    /* fix for header border styling */
+    @apply border-b border-gray-200 dark:border-gray-700;
+  }
 }
 
 .light {

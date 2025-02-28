@@ -8,15 +8,15 @@ import {
 
 const Hero = () => {
   return (
-    <section className="bg-white dark:bg-slate-950">
-      <div className="container mx-auto px-6 py-16 text-center">
+    <section className="relative">
+      <div className="container relative mx-auto px-6 py-16 text-center">
         <div className="mx-auto max-w-lg">
           <Image
             src="/img/me.jpeg?height=150&width=150"
             alt="Alexander Swensen"
             width={150}
             height={150}
-            className="mx-auto rounded-full"
+            className="mx-auto rounded-full ring-2 ring-gray-100 dark:ring-gray-800"
           />
           <h1 className="mt-6 text-3xl font-bold text-gray-800 dark:text-white md:text-4xl">
             Alexander Swensen
