@@ -2,8 +2,6 @@ import Hero from '@/components/Hero';
 import Skills from '@/components/Skills';
 import ContactCTA from '@/components/ContactCTA';
 import type { Metadata } from 'next';
-import { auth } from '@/auth';
-import { SignOut } from '@/components/auth/signout-button';
 
 export const metadata: Metadata = {
   title: {
@@ -73,8 +71,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Home() {
-  const session = await auth();
+export default function Home() {
   return (
     <div className="relative isolate min-h-screen flex flex-col bg-gradient-to-br from-blue-100 via-white to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_50%,rgba(79,70,229,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_50%,rgba(100,100,255,0.15),transparent_50%)]"></div>
@@ -82,8 +79,6 @@ export default async function Home() {
         <Hero />
         <Skills />
         <ContactCTA />
-        {session && <SignOut />}
-        {/* {session && <p>signed in as {session?.user?.email}</p>} */}
       </div>
     </div>
   );
