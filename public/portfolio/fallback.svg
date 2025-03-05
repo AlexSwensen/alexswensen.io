@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="450" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#F3F4F6"/>
+  
+  <!-- Code window frame -->
+  <rect x="100" y="50" width="600" height="350" rx="8" fill="#E5E7EB"/>
+  <rect x="100" y="50" width="600" height="30" rx="8" fill="#D1D5DB"/>
+  
+  <!-- Window controls -->
+  <circle cx="120" cy="65" r="6" fill="#EF4444"/>
+  <circle cx="140" cy="65" r="6" fill="#F59E0B"/>
+  <circle cx="160" cy="65" r="6" fill="#22C55E"/>
+  
+  <!-- Code lines -->
+  <rect x="120" y="100" width="560" height="4" rx="2" fill="#9CA3AF"/>
+  <rect x="120" y="120" width="480" height="4" rx="2" fill="#9CA3AF"/>
+  <rect x="120" y="140" width="520" height="4" rx="2" fill="#9CA3AF"/>
+  <rect x="120" y="160" width="440" height="4" rx="2" fill="#9CA3AF"/>
+  <rect x="120" y="180" width="500" height="4" rx="2" fill="#9CA3AF"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="400" cy="300" r="40" fill="#E5E7EB"/>
+  <path d="M400 260V340M360 300H440" stroke="#9CA3AF" stroke-width="4" stroke-linecap="round"/>
+</svg> 
