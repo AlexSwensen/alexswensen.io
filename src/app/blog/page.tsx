@@ -49,7 +49,7 @@ export default async function BlogPage() {
                 </time>
                 <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">{post.excerpt}</p>
-                <div className="flex gap-2 flex-wrap">
+                <div className="flex flex-wrap gap-2">
                   {post.tags.map((tag) => (
                     <span
                       key={tag}

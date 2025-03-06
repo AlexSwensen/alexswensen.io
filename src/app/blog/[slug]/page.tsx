@@ -94,7 +94,7 @@ export default async function BlogPost({ params }: Props) {
           <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
           <div className="flex items-center gap-4 text-gray-600 dark:text-gray-400 mb-4">
             <time dateTime={post.date}>{formatDate(post.date)}</time>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
                 <span key={tag} className="text-sm bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
                   {tag}
