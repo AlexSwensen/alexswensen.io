@@ -38,6 +38,15 @@ export const resumeData = {
     'GitHub',
     'HTML',
     'Front-End Development',
+    'Python',
+    'Go',
+    'Docker',
+    'Kubernetes',
+    'CI/CD',
+    'Agile Methodologies',
+    'Automated Testing',
+    'Full-Stack Development',
+    'Microservices',
   ],
 
   education: [

@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin, Globe, Linkedin, Github, Calendar, Building } from
 
 export default function ResumePage() {
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="max-w-5xl mx-auto py-5">
       <h1 className="text-4xl font-bold mb-2 text-primary">{resumeData.name}</h1>
       <h2 className="text-xl text-muted-foreground mb-6">{resumeData.title}</h2>
 
