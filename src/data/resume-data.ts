@@ -116,6 +116,7 @@ export const resumeData = {
       location: 'Nashville, Tennessee, United States',
       startDate: 'January 2022',
       endDate: 'April 2022',
+      skills: ['AWS', 'Serverless.js', 'Python', 'ETL'],
       duties: ['Designed and deployed serverless, self-healing data architecture in AWS.'],
     },
     {
