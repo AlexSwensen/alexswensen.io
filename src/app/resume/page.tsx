@@ -42,19 +42,23 @@ export default function ResumePage() {
                       </span>
                     </div>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {job.skills.map((skill, skillIndex) => (
-                        <Badge key={skillIndex} variant="outline" className="bg-secondary/30">
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
+                    {job.skills && job.skills.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {job.skills.map((skill, skillIndex) => (
+                          <Badge key={skillIndex} variant="outline" className="bg-secondary/30">
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    )}
 
-                    <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                      {job.duties.map((duty, dutyIndex) => (
-                        <li key={dutyIndex}>{duty}</li>
-                      ))}
-                    </ul>
+                    {job.duties && job.duties.length > 0 && (
+                      <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
+                        {job.duties.map((duty, dutyIndex) => (
+                          <li key={dutyIndex}>{duty}</li>
+                        ))}
+                      </ul>
+                    )}
                   </CardContent>
                 </Card>
               ))}
@@ -153,18 +157,20 @@ export default function ResumePage() {
           </Card>
 
           {/* Skills */}
-          <Card className="mb-6">
-            <CardContent className="p-6">
-              <h3 className="text-lg font-semibold mb-4 text-primary">Skills</h3>
-              <div className="flex flex-wrap gap-2">
-                {resumeData.skills.map((skill, index) => (
-                  <Badge key={index} className="bg-primary/10 text-primary border-primary/20">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+          {resumeData.skills && resumeData.skills.length > 0 && (
+            <Card className="mb-6">
+              <CardContent className="p-6">
+                <h3 className="text-lg font-semibold mb-4 text-primary">Skills</h3>
+                <div className="flex flex-wrap gap-2">
+                  {resumeData.skills.map((skill, index) => (
+                    <Badge key={index} className="bg-primary/10 text-primary border-primary/20">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          )}
 
           {/* Certifications */}
           <Card className="mb-6">
