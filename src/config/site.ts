@@ -1,6 +1,6 @@
 export const siteConfig = {
   availability: {
-    isAvailableForWork: true,
+    isAvailableForWork: false,
     message: 'Available for new opportunities!',
   },
 } as const;
