@@ -87,16 +87,17 @@ export default async function BlogPost({ params }: Props) {
         {/* Back navigation */}
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8 group"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6 md:mb-8 group"
+          aria-label="Back to blog list"
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           Back to blog
         </Link>
 
-        <article>
+        <article role="article">
           {/* Featured image */}
           {post.image && (
-            <div className="relative w-full h-[400px] mb-8 rounded-xl overflow-hidden shadow-lg">
+            <div className="relative w-full h-[250px] md:h-[400px] mb-6 md:mb-8 rounded-xl overflow-hidden shadow-lg">
               <Image
                 src={post.image}
                 alt={post.title}
@@ -109,37 +110,41 @@ export default async function BlogPost({ params }: Props) {
           )}
 
           {/* Article header */}
-          <header className="mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">{post.title}</h1>
+          <header className="mb-6 md:mb-8">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
+              {post.title}
+            </h1>
 
             {/* Author and meta info */}
-            <div className="flex flex-wrap items-center gap-6 text-muted-foreground mb-6 pb-6 border-b border-border">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-6 text-muted-foreground mb-4 md:mb-6 pb-4 md:pb-6 border-b border-border">
               <div className="flex items-center gap-2">
-                <User className="h-4 w-4" />
+                <User className="h-4 w-4" aria-hidden="true" />
                 <span className="font-medium">Alexander Swensen</span>
               </div>
 
               <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4" />
+                <Calendar className="h-4 w-4" aria-hidden="true" />
                 <time dateTime={post.date}>{formatDate(post.date)}</time>
               </div>
 
               <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4" />
+                <Clock className="h-4 w-4" aria-hidden="true" />
                 <span>{formatReadingTime(readingTime)}</span>
               </div>
             </div>
 
             {/* Post excerpt */}
             {post.excerpt && (
-              <p className="text-xl text-muted-foreground leading-relaxed mb-6">{post.excerpt}</p>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4 md:mb-6">
+                {post.excerpt}
+              </p>
             )}
 
             {/* Tags */}
             {post.tags && post.tags.length > 0 && (
-              <div className="flex items-center gap-3 flex-wrap">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 flex-wrap">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Tag className="h-4 w-4" />
+                  <Tag className="h-4 w-4" aria-hidden="true" />
                   <span>Tags:</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -154,17 +159,18 @@ export default async function BlogPost({ params }: Props) {
           </header>
 
           {/* Article content */}
-          <div className="prose prose-lg dark:prose-invert max-w-none">
+          <div className="prose prose-sm md:prose-lg dark:prose-invert max-w-none">
             <Markdown content={post.content} />
           </div>
         </article>
 
         {/* Article footer */}
-        <footer className="mt-12 pt-8 border-t border-border">
-          <div className="flex items-center justify-between">
+        <footer className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <Link
               href="/blog"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
+              aria-label="Back to all blog posts"
             >
               <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
               Back to all posts

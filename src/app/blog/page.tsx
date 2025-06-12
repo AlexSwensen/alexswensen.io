@@ -29,19 +29,24 @@ export default async function BlogPage() {
   return (
     <div className="container mx-auto px-6 py-8">
       <div className="max-w-6xl mx-auto">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Blog</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <header className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">Blog</h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Thoughts and writings on software development, technology, and more.
           </p>
         </header>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+        <div className="grid gap-6 md:gap-8 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
           {posts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group"
+              aria-label={`Read article: ${post.title}`}
+            >
               <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] border-border/50 hover:border-border">
                 {post.image && (
-                  <div className="relative w-full h-48 overflow-hidden">
+                  <div className="relative w-full h-40 md:h-48 overflow-hidden">
                     <Image
                       src={post.image}
                       alt={post.title}
@@ -52,28 +57,28 @@ export default async function BlogPage() {
                   </div>
                 )}
                 <CardHeader className="pb-3">
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground mb-2">
                     <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
+                      <Calendar className="h-4 w-4" aria-hidden="true" />
                       <time dateTime={post.date}>{formatDate(post.date)}</time>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4" />
+                      <Clock className="h-4 w-4" aria-hidden="true" />
                       {formatReadingTime(calculateReadingTime(post.content || post.excerpt))}
                     </div>
                   </div>
-                  <CardTitle className="text-xl font-semibold line-clamp-2 group-hover:text-primary transition-colors">
+                  <CardTitle className="text-lg md:text-xl font-semibold line-clamp-2 group-hover:text-primary transition-colors">
                     {post.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <CardDescription className="text-base mb-4 line-clamp-3">
+                  <CardDescription className="text-sm md:text-base mb-4 line-clamp-3">
                     {post.excerpt}
                   </CardDescription>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <User className="h-4 w-4" />
+                      <User className="h-4 w-4" aria-hidden="true" />
                       <span>Alexander Swensen</span>
                     </div>
                   </div>
