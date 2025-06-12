@@ -3,6 +3,10 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Markdown } from '@/components/Markdown';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Badge } from '@/components/ui/badge';
+import { calculateReadingTime, formatReadingTime } from '@/lib/reading-time';
+import { ArrowLeft, Calendar, Clock, User, Tag } from 'lucide-react';
 import '@/styles/markdown.css';
 
 interface Props {
@@ -75,36 +79,109 @@ export default async function BlogPost({ params }: Props) {
     notFound();
   }
 
+  const readingTime = calculateReadingTime(post.content);
+
   return (
     <div className="container mx-auto px-6 py-8">
-      <article className="max-w-4xl mx-auto">
-        {post.image && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
-            <Image
-              src={post.image}
-              alt={post.title}
-              fill
-              priority
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 1024px"
-            />
+      <div className="max-w-4xl mx-auto">
+        {/* Back navigation */}
+        <Link
+          href="/blog"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6 md:mb-8 group"
+          aria-label="Back to blog list"
+        >
+          <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+          Back to blog
+        </Link>
+
+        <article role="article">
+          {/* Featured image */}
+          {post.image && (
+            <div className="relative w-full h-[250px] md:h-[400px] mb-6 md:mb-8 rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                priority
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 1024px"
+              />
+            </div>
+          )}
+
+          {/* Article header */}
+          <header className="mb-6 md:mb-8">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
+              {post.title}
+            </h1>
+
+            {/* Author and meta info */}
+            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-6 text-muted-foreground mb-4 md:mb-6 pb-4 md:pb-6 border-b border-border">
+              <div className="flex items-center gap-2">
+                <User className="h-4 w-4" aria-hidden="true" />
+                <span className="font-medium">Alexander Swensen</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Calendar className="h-4 w-4" aria-hidden="true" />
+                <time dateTime={post.date}>{formatDate(post.date)}</time>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Clock className="h-4 w-4" aria-hidden="true" />
+                <span>{formatReadingTime(readingTime)}</span>
+              </div>
+            </div>
+
+            {/* Post excerpt */}
+            {post.excerpt && (
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4 md:mb-6">
+                {post.excerpt}
+              </p>
+            )}
+
+            {/* Tags */}
+            {post.tags && post.tags.length > 0 && (
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 flex-wrap">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Tag className="h-4 w-4" aria-hidden="true" />
+                  <span>Tags:</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {post.tags.map((tag) => (
+                    <Badge key={tag} variant="secondary">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            )}
+          </header>
+
+          {/* Article content */}
+          <div className="prose prose-sm md:prose-lg dark:prose-invert max-w-none">
+            <Markdown content={post.content} />
           </div>
-        )}
-        <header className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-          <div className="flex items-center gap-4 text-gray-600 dark:text-gray-400 mb-4">
-            <time dateTime={post.date}>{formatDate(post.date)}</time>
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <span key={tag} className="text-sm bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
-                  {tag}
-                </span>
-              ))}
+        </article>
+
+        {/* Article footer */}
+        <footer className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
+              aria-label="Back to all blog posts"
+            >
+              <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+              Back to all posts
+            </Link>
+
+            <div className="text-sm text-muted-foreground">
+              Published on {formatDate(post.date)}
             </div>
           </div>
-        </header>
-        <Markdown content={post.content} />
-      </article>
+        </footer>
+      </div>
     </div>
   );
 }
