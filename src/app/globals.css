@@ -133,3 +133,45 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Syntax highlighting for code blocks */
+@import 'highlight.js/styles/github.css';
+
+.dark {
+  /* Dark theme syntax highlighting overrides */
+  .hljs {
+    background: hsl(217.2 32.6% 17.5%) !important; /* slate-800 */
+    color: hsl(210 40% 98%) !important; /* slate-50 */
+  }
+
+  .hljs-comment,
+  .hljs-quote {
+    color: hsl(215 20.2% 65.1%) !important; /* slate-400 */
+  }
+
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-type {
+    color: hsl(209 92% 70%) !important; /* blue-400 */
+  }
+
+  .hljs-string,
+  .hljs-attr {
+    color: hsl(142 84% 67%) !important; /* green-400 */
+  }
+
+  .hljs-number,
+  .hljs-literal {
+    color: hsl(45 100% 70%) !important; /* yellow-400 */
+  }
+
+  .hljs-variable,
+  .hljs-template-variable {
+    color: hsl(346 87% 75%) !important; /* pink-400 */
+  }
+
+  .hljs-function,
+  .hljs-title {
+    color: hsl(251 91% 80%) !important; /* purple-400 */
+  }
+}

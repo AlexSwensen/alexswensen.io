@@ -1,4 +1,5 @@
-import { getAllPosts } from '@/lib/posts';
+import { getPaginatedPosts } from '@/lib/posts';
+import { Pagination } from '@/components/Pagination';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,6 +12,10 @@ export const metadata: Metadata = {
 export const dynamic = 'force-static';
 export const revalidate = 3600; // revalidate every hour
 
+interface Props {
+  searchParams: Promise<{ page?: string }>;
+}
+
 function formatDate(dateString: string) {
   return new Date(dateString).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -19,8 +24,13 @@ function formatDate(dateString: string) {
   });
 }
 
-export default async function BlogPage() {
-  const posts = await getAllPosts();
+export default async function BlogPage({ searchParams }: Props) {
+  const { page } = await searchParams;
+  const currentPage = Number(page) || 1;
+  const { posts, totalPages, hasNextPage, hasPreviousPage } = await getPaginatedPosts(
+    currentPage,
+    6
+  );
 
   return (
     <div className="container mx-auto px-6 py-8">
@@ -95,6 +105,13 @@ export default async function BlogPage() {
             <p className="text-lg text-gray-500 dark:text-gray-400">No blog posts found.</p>
           </div>
         )}
+
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          hasNextPage={hasNextPage}
+          hasPreviousPage={hasPreviousPage}
+        />
       </div>
     </div>
   );

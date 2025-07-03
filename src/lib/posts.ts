@@ -13,6 +13,14 @@ export interface Post {
   image?: string;
 }
 
+export interface PaginatedPosts {
+  posts: Post[];
+  totalPages: number;
+  currentPage: number;
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+}
+
 export const getAllPosts = cache(async () => {
   const postsDirectory = path.join(process.cwd(), 'posts');
   const files = await fs.readdir(postsDirectory);
@@ -36,6 +44,24 @@ export const getAllPosts = cache(async () => {
   // Sort posts by date
   return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 });
+
+export const getPaginatedPosts = cache(
+  async (page: number = 1, postsPerPage: number = 6): Promise<PaginatedPosts> => {
+    const allPosts = await getAllPosts();
+    const totalPages = Math.ceil(allPosts.length / postsPerPage);
+    const startIndex = (page - 1) * postsPerPage;
+    const endIndex = startIndex + postsPerPage;
+    const posts = allPosts.slice(startIndex, endIndex);
+
+    return {
+      posts,
+      totalPages,
+      currentPage: page,
+      hasNextPage: page < totalPages,
+      hasPreviousPage: page > 1,
+    };
+  }
+);
 
 export async function getPostBySlug(slug: string): Promise<Post | undefined> {
   const posts = await getAllPosts();
