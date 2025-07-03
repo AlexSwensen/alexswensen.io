@@ -2,10 +2,6 @@ import { getAllPosts } from '@/lib/posts';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { calculateReadingTime, formatReadingTime } from '@/lib/reading-time';
-import { Calendar, Clock, User } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Blog | Alexander Swensen',
@@ -29,83 +25,74 @@ export default async function BlogPage() {
   return (
     <div className="container mx-auto px-6 py-8">
       <div className="max-w-6xl mx-auto">
-        <header className="text-center mb-8 md:mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Blog</h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+        <header className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4">Blog</h1>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Thoughts and writings on software development, technology, and more.
           </p>
         </header>
 
-        <div className="grid gap-6 md:gap-8 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
           {posts.map((post) => (
-            <Link
+            <article
               key={post.slug}
-              href={`/blog/${post.slug}`}
-              className="group"
-              aria-label={`Read article: ${post.title}`}
+              className="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden 
+                         hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-lg 
+                         transition-all duration-300 hover:scale-[1.02] bg-white dark:bg-gray-900"
             >
-              <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] border-border/50 hover:border-border">
+              <Link href={`/blog/${post.slug}`} className="block">
                 {post.image && (
-                  <div className="relative w-full h-40 md:h-48 overflow-hidden">
+                  <div className="relative w-full h-48 overflow-hidden">
                     <Image
                       src={post.image}
                       alt={post.title}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
                     />
                   </div>
                 )}
-                <CardHeader className="pb-3">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground mb-2">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" aria-hidden="true" />
-                      <time dateTime={post.date}>{formatDate(post.date)}</time>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4" aria-hidden="true" />
-                      {formatReadingTime(calculateReadingTime(post.content || post.excerpt))}
-                    </div>
-                  </div>
-                  <CardTitle className="text-lg md:text-xl font-semibold line-clamp-2 group-hover:text-primary transition-colors">
+                <div className="p-6">
+                  <time className="text-sm text-gray-500 dark:text-gray-400 mb-3 block">
+                    {formatDate(post.date)}
+                  </time>
+                  <h2
+                    className="text-xl font-semibold mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 
+                                 transition-colors truncate"
+                  >
                     {post.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <CardDescription className="text-sm md:text-base mb-4 line-clamp-3">
+                  </h2>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 leading-relaxed">
                     {post.excerpt}
-                  </CardDescription>
-
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <User className="h-4 w-4" aria-hidden="true" />
-                      <span>Alexander Swensen</span>
-                    </div>
-                  </div>
-
+                  </p>
                   {post.tags && post.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mt-4">
+                    <div className="flex flex-wrap gap-2">
                       {post.tags.slice(0, 3).map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs">
+                        <span
+                          key={tag}
+                          className="text-xs bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 
+                                     dark:hover:bg-gray-700 px-3 py-1 rounded-full text-gray-700 
+                                     dark:text-gray-300 transition-colors"
+                        >
                           {tag}
-                        </Badge>
+                        </span>
                       ))}
                       {post.tags.length > 3 && (
-                        <Badge variant="outline" className="text-xs">
+                        <span className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1">
                           +{post.tags.length - 3} more
-                        </Badge>
+                        </span>
                       )}
                     </div>
                   )}
-                </CardContent>
-              </Card>
-            </Link>
+                </div>
+              </Link>
+            </article>
           ))}
         </div>
 
         {posts.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-lg text-muted-foreground">No blog posts found.</p>
+          <div className="text-center py-16">
+            <p className="text-lg text-gray-500 dark:text-gray-400">No blog posts found.</p>
           </div>
         )}
       </div>

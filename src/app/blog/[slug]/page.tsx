@@ -4,10 +4,6 @@ import type { Metadata } from 'next';
 import { Markdown } from '@/components/Markdown';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
-import { calculateReadingTime, formatReadingTime } from '@/lib/reading-time';
-import { ArrowLeft, Calendar, Clock, User, Tag } from 'lucide-react';
-import '@/styles/markdown.css';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -79,25 +75,24 @@ export default async function BlogPost({ params }: Props) {
     notFound();
   }
 
-  const readingTime = calculateReadingTime(post.content);
-
   return (
     <div className="container mx-auto px-6 py-8">
       <div className="max-w-4xl mx-auto">
         {/* Back navigation */}
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6 md:mb-8 group"
-          aria-label="Back to blog list"
-        >
-          <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-          Back to blog
-        </Link>
+        <div className="mb-8">
+          <Link
+            href="/blog"
+            className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 
+                       dark:hover:text-gray-100 transition-colors group"
+          >
+            <span className="mr-2 group-hover:-translate-x-1 transition-transform">←</span>
+            Back to blog
+          </Link>
+        </div>
 
-        <article role="article">
-          {/* Featured image */}
+        <article className="prose prose-gray dark:prose-invert max-w-none">
           {post.image && (
-            <div className="relative w-full h-[250px] md:h-[400px] mb-6 md:mb-8 rounded-xl overflow-hidden shadow-lg">
+            <div className="relative w-full h-64 md:h-80 mb-8 rounded-xl overflow-hidden shadow-lg">
               <Image
                 src={post.image}
                 alt={post.title}
@@ -109,75 +104,61 @@ export default async function BlogPost({ params }: Props) {
             </div>
           )}
 
-          {/* Article header */}
-          <header className="mb-6 md:mb-8">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
-              {post.title}
-            </h1>
+          <header className="mb-8 not-prose">
+            <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">{post.title}</h1>
 
-            {/* Author and meta info */}
-            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-6 text-muted-foreground mb-4 md:mb-6 pb-4 md:pb-6 border-b border-border">
-              <div className="flex items-center gap-2">
-                <User className="h-4 w-4" aria-hidden="true" />
-                <span className="font-medium">Alexander Swensen</span>
-              </div>
+            <div
+              className="flex flex-wrap items-center gap-4 text-gray-600 dark:text-gray-400 
+                          mb-6 pb-6 border-b border-gray-200 dark:border-gray-700"
+            >
+              <time dateTime={post.date} className="font-medium">
+                {formatDate(post.date)}
+              </time>
 
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4" aria-hidden="true" />
-                <time dateTime={post.date}>{formatDate(post.date)}</time>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4" aria-hidden="true" />
-                <span>{formatReadingTime(readingTime)}</span>
-              </div>
+              {post.tags && post.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {post.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full
+                               text-gray-700 dark:text-gray-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* Post excerpt */}
             {post.excerpt && (
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4 md:mb-6">
+              <p
+                className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8 
+                           border-l-4 border-gray-200 dark:border-gray-700 pl-4 italic"
+              >
                 {post.excerpt}
               </p>
             )}
-
-            {/* Tags */}
-            {post.tags && post.tags.length > 0 && (
-              <div className="flex flex-col sm:flex-row sm:items-center gap-3 flex-wrap">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Tag className="h-4 w-4" aria-hidden="true" />
-                  <span>Tags:</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            )}
           </header>
 
-          {/* Article content */}
-          <div className="prose prose-sm md:prose-lg dark:prose-invert max-w-none">
+          <div className="prose-lg">
             <Markdown content={post.content} />
           </div>
         </article>
 
-        {/* Article footer */}
-        <footer className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        {/* Footer navigation */}
+        <footer className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <div className="flex justify-between items-center">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
-              aria-label="Back to all blog posts"
+              className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 
+                         dark:hover:text-gray-100 transition-colors group"
             >
-              <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-              Back to all posts
+              <span className="mr-2 group-hover:-translate-x-1 transition-transform">←</span>
+              All posts
             </Link>
 
-            <div className="text-sm text-muted-foreground">
-              Published on {formatDate(post.date)}
+            <div className="text-sm text-gray-500 dark:text-gray-400">
+              Published {formatDate(post.date)}
             </div>
           </div>
         </footer>
