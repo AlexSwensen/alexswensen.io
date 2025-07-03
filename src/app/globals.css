@@ -138,40 +138,110 @@
 @import 'highlight.js/styles/github.css';
 
 .dark {
-  /* Dark theme syntax highlighting overrides */
+  /* Dark theme syntax highlighting overrides - based on GitHub Dark theme */
   .hljs {
     background: hsl(217.2 32.6% 17.5%) !important; /* slate-800 */
     color: hsl(210 40% 98%) !important; /* slate-50 */
   }
 
+  /* Comments and documentation */
   .hljs-comment,
   .hljs-quote {
     color: hsl(215 20.2% 65.1%) !important; /* slate-400 */
+    font-style: italic;
   }
 
+  /* Keywords, control flow, and syntax elements */
   .hljs-keyword,
   .hljs-selector-tag,
-  .hljs-type {
-    color: hsl(209 92% 70%) !important; /* blue-400 */
+  .hljs-type,
+  .hljs-built_in,
+  .hljs-builtin-name {
+    color: hsl(213 94% 68%) !important; /* blue-400 */
   }
 
+  /* Strings, attributes, and literals */
   .hljs-string,
-  .hljs-attr {
+  .hljs-attr,
+  .hljs-attribute {
     color: hsl(142 84% 67%) !important; /* green-400 */
   }
 
+  /* Numbers and literals */
   .hljs-number,
-  .hljs-literal {
+  .hljs-literal,
+  .hljs-boolean {
     color: hsl(45 100% 70%) !important; /* yellow-400 */
   }
 
+  /* Variables and template variables */
   .hljs-variable,
-  .hljs-template-variable {
+  .hljs-template-variable,
+  .hljs-property {
     color: hsl(346 87% 75%) !important; /* pink-400 */
   }
 
+  /* Functions, methods, and titles */
   .hljs-function,
-  .hljs-title {
+  .hljs-title,
+  .hljs-title.function_,
+  .hljs-title.class_,
+  .hljs-section {
     color: hsl(251 91% 80%) !important; /* purple-400 */
+  }
+
+  /* YAML-specific styling for better detail */
+  .hljs-meta,
+  .hljs-meta-string {
+    color: hsl(38 100% 67%) !important; /* orange-400 */
+  }
+
+  /* Punctuation and operators */
+  .hljs-punctuation,
+  .hljs-operator {
+    color: hsl(215 20.2% 65.1%) !important; /* slate-400 */
+  }
+
+  /* Tags and XML/HTML elements */
+  .hljs-tag,
+  .hljs-name {
+    color: hsl(213 94% 68%) !important; /* blue-400 */
+  }
+
+  /* Regular expressions */
+  .hljs-regexp {
+    color: hsl(168 84% 67%) !important; /* teal-400 */
+  }
+
+  /* Symbols and constants */
+  .hljs-symbol,
+  .hljs-constant {
+    color: hsl(291 84% 67%) !important; /* violet-400 */
+  }
+
+  /* Classes and types */
+  .hljs-class,
+  .hljs-params {
+    color: hsl(25 95% 67%) !important; /* orange-400 */
+  }
+
+  /* Additions and deletions for diffs */
+  .hljs-addition {
+    color: hsl(142 84% 67%) !important; /* green-400 */
+    background-color: hsl(142 84% 67% / 0.1) !important;
+  }
+
+  .hljs-deletion {
+    color: hsl(0 84% 67%) !important; /* red-400 */
+    background-color: hsl(0 84% 67% / 0.1) !important;
+  }
+
+  /* Emphasis */
+  .hljs-emphasis {
+    font-style: italic;
+  }
+
+  .hljs-strong {
+    font-weight: bold;
   }
 }

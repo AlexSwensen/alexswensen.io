@@ -1,4 +1,6 @@
-import Link from 'next/link';
+'use client';
+
+import { useRouter } from 'next/navigation';
 
 interface PaginationProps {
   currentPage: number;
@@ -13,6 +15,12 @@ export function Pagination({
   hasNextPage,
   hasPreviousPage,
 }: PaginationProps) {
+  const router = useRouter();
+
+  const navigateToPage = (page: number) => {
+    router.push(`/blog?page=${page}`);
+  };
+
   if (totalPages <= 1) return null;
 
   const generatePageNumbers = () => {
@@ -40,8 +48,8 @@ export function Pagination({
     <nav className="flex items-center justify-center gap-2 mt-12" aria-label="Pagination">
       {/* Previous button */}
       {hasPreviousPage ? (
-        <Link
-          href={`/blog?page=${currentPage - 1}`}
+        <button
+          onClick={() => navigateToPage(currentPage - 1)}
           className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 
                      bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg 
                      hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100 
@@ -49,7 +57,7 @@ export function Pagination({
         >
           <span className="mr-2">←</span>
           Previous
-        </Link>
+        </button>
       ) : (
         <span
           className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-400 
@@ -66,15 +74,15 @@ export function Pagination({
         {/* Show first page and ellipsis if needed */}
         {pageNumbers[0] > 1 && (
           <>
-            <Link
-              href="/blog?page=1"
+            <button
+              onClick={() => navigateToPage(1)}
               className="inline-flex items-center justify-center w-10 h-10 text-sm font-medium 
                          text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border 
                          border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 
                          dark:hover:bg-gray-700 transition-colors"
             >
               1
-            </Link>
+            </button>
             {pageNumbers[0] > 2 && (
               <span
                 className="inline-flex items-center justify-center w-10 h-10 text-sm 
@@ -88,9 +96,9 @@ export function Pagination({
 
         {/* Current page range */}
         {pageNumbers.map((page) => (
-          <Link
+          <button
             key={page}
-            href={`/blog?page=${page}`}
+            onClick={() => navigateToPage(page)}
             className={`inline-flex items-center justify-center w-10 h-10 text-sm font-medium 
                        border rounded-lg transition-colors ${
                          page === currentPage
@@ -99,7 +107,7 @@ export function Pagination({
                        }`}
           >
             {page}
-          </Link>
+          </button>
         ))}
 
         {/* Show last page and ellipsis if needed */}
@@ -113,15 +121,15 @@ export function Pagination({
                 ...
               </span>
             )}
-            <Link
-              href={`/blog?page=${totalPages}`}
+            <button
+              onClick={() => navigateToPage(totalPages)}
               className="inline-flex items-center justify-center w-10 h-10 text-sm font-medium 
                          text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border 
                          border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 
                          dark:hover:bg-gray-700 transition-colors"
             >
               {totalPages}
-            </Link>
+            </button>
           </>
         )}
       </div>
@@ -133,8 +141,8 @@ export function Pagination({
 
       {/* Next button */}
       {hasNextPage ? (
-        <Link
-          href={`/blog?page=${currentPage + 1}`}
+        <button
+          onClick={() => navigateToPage(currentPage + 1)}
           className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 
                      bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg 
                      hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100 
@@ -142,7 +150,7 @@ export function Pagination({
         >
           Next
           <span className="ml-2">→</span>
-        </Link>
+        </button>
       ) : (
         <span
           className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-400 
