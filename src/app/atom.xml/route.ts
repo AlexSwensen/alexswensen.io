@@ -43,7 +43,7 @@ const generateAtomFeed = cache(async () => {
   const atom = `<?xml version="1.0" encoding="UTF-8" ?>
   <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Alex Swensen Blog</title>
-    <link href="${siteUrl}/atom" rel="self"/>
+    <link href="${siteUrl}/atom.xml" rel="self"/>
     <link href="${siteUrl}/blog"/>
     <updated>${new Date().toISOString()}</updated>
     <id>${siteUrl}/blog</id>
