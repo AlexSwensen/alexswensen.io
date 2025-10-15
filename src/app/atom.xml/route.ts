@@ -23,7 +23,7 @@ async function markdownToHtml(markdown: string): Promise<string> {
 
 const generateAtomFeed = cache(async () => {
   const posts = await getAllPosts();
-  
+
   const atomEntries = await Promise.all(
     posts.map(async (post) => {
       const htmlContent = await markdownToHtml(post.content);
@@ -56,7 +56,7 @@ const generateAtomFeed = cache(async () => {
 
 export async function GET() {
   const atom = await generateAtomFeed();
-  
+
   return new NextResponse(atom, {
     headers: {
       'Content-Type': 'application/atom+xml; charset=UTF-8',

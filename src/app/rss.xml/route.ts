@@ -23,7 +23,7 @@ async function markdownToHtml(markdown: string): Promise<string> {
 
 const generateRssFeed = cache(async () => {
   const posts = await getAllPosts();
-  
+
   const rssItems = await Promise.all(
     posts.map(async (post) => {
       const htmlContent = await markdownToHtml(post.content);
@@ -55,7 +55,7 @@ const generateRssFeed = cache(async () => {
 
 export async function GET() {
   const rss = await generateRssFeed();
-  
+
   return new NextResponse(rss, {
     headers: {
       'Content-Type': 'application/rss+xml; charset=UTF-8',
