@@ -11,7 +11,7 @@ Create a `.env` file in the root of your project with the following variables:
 DATABASE_URL=postgresql://user:password@localhost:5432/dbname
 
 # Better Auth
-BETTER_AUTH_SECRET=your-secret-key-min-32-characters-long
+BETTER_AUTH_SECRET=generate-a-random-secret-at-least-32-characters-long
 BETTER_AUTH_URL=http://localhost:3000
 NEXT_PUBLIC_BETTER_AUTH_URL=http://localhost:3000
 ```
@@ -81,16 +81,16 @@ function AuthComponent() {
 
   const handleSignUp = async () => {
     await signUp.email({
-      email: 'user@example.com',
-      password: 'password',
-      name: 'User Name'
+      email: 'your-email@example.com',
+      password: 'your-secure-password',
+      name: 'Your Name'
     });
   };
 
   const handleSignIn = async () => {
     await signIn.email({
-      email: 'user@example.com',
-      password: 'password'
+      email: 'your-email@example.com',
+      password: 'your-secure-password'
     });
   };
 
