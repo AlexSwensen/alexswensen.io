@@ -17,6 +17,12 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes to apply to the card',
+    },
+  },
 } satisfies Meta<typeof Card>;
 
 export default meta;

@@ -12,13 +12,49 @@ const meta = {
     variant: {
       control: 'select',
       options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
+      description: 'The visual style variant of the button',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'default' },
+      },
     },
     size: {
       control: 'select',
       options: ['default', 'sm', 'lg', 'icon'],
+      description: 'The size of the button',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'default' },
+      },
     },
     asChild: {
       control: 'boolean',
+      description: 'Whether to render as a child component using Slot',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Whether the button is disabled',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    children: {
+      control: 'text',
+      description: 'The content of the button',
+    },
+    type: {
+      control: 'select',
+      options: ['button', 'submit', 'reset'],
+      description: 'The type attribute of the button element',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'button' },
+      },
     },
   },
 } satisfies Meta<typeof Button>;

@@ -22,6 +22,31 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    open: {
+      control: 'boolean',
+      description: 'The controlled open state of the dropdown menu',
+      table: {
+        type: { summary: 'boolean' },
+      },
+    },
+    defaultOpen: {
+      control: 'boolean',
+      description: 'The open state of the dropdown menu when it is initially rendered',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    modal: {
+      control: 'boolean',
+      description: 'Whether the dropdown should be modal',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'true' },
+      },
+    },
+  },
 } satisfies Meta<typeof DropdownMenu>;
 
 export default meta;

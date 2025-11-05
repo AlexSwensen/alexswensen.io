@@ -12,9 +12,23 @@ const meta = {
     variant: {
       control: 'select',
       options: ['default', 'secondary', 'destructive', 'outline'],
+      description: 'The visual style variant of the badge',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'default' },
+      },
     },
     asChild: {
       control: 'boolean',
+      description: 'Whether to render as a child component using Slot',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    children: {
+      control: 'text',
+      description: 'The content of the badge',
     },
   },
 } satisfies Meta<typeof Badge>;
