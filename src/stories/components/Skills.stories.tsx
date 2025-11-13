@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeToggle } from './theme-toggle';
+import Skills from '../../components/Skills';
 
 const meta = {
-  title: 'Components/ThemeToggle',
-  component: ThemeToggle,
+  title: 'Components/Skills',
+  component: Skills,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof ThemeToggle>;
+} satisfies Meta<typeof Skills>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
