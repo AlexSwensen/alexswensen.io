@@ -1,14 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Header } from '../../components/Header';
+import Hero from '../../src/components/Hero';
 
 const meta = {
-  title: 'Components/Header',
-  component: Header,
+  title: 'Components/Hero',
+  component: Hero,
   parameters: {
     layout: 'fullscreen',
+    nextjs: {
+      appDirectory: true,
+    },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Header>;
+} satisfies Meta<typeof Hero>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

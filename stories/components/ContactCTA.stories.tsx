@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ContactCTA from '../../components/ContactCTA';
+import ContactCTA from '../../src/components/ContactCTA';
 
 const meta = {
   title: 'Components/ContactCTA',

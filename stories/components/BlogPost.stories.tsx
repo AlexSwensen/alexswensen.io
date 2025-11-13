@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { BlogPost } from '../../components/BlogPost';
+import { BlogPost } from '../../src/components/BlogPost';
 
 const meta = {
   title: 'Pages/BlogPost',
