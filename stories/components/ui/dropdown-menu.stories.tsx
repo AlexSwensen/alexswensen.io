@@ -12,8 +12,8 @@ import {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-} from './dropdown-menu';
-import { Button } from './button';
+} from '../../../src/components/ui/dropdown-menu';
+import { Button } from '../../../src/components/ui/button';
 
 const meta = {
   title: 'UI/DropdownMenu',

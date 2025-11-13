@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ContactCTA from './ContactCTA';
+import Skills from '../../src/components/Skills';
 
 const meta = {
-  title: 'Components/ContactCTA',
-  component: ContactCTA,
+  title: 'Components/Skills',
+  component: Skills,
   parameters: {
-    layout: 'padded',
+    layout: 'fullscreen',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof ContactCTA>;
+} satisfies Meta<typeof Skills>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

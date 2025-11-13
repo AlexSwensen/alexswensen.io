@@ -35,9 +35,14 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       const theme = context.globals.theme || 'light';
-      
+
       return (
-        <ThemeProvider attribute="class" defaultTheme={theme} enableSystem={true} disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme={theme}
+          enableSystem={true}
+          disableTransitionOnChange
+        >
           <ThemeWrapper theme={theme}>
             <Story />
           </ThemeWrapper>
@@ -50,11 +55,11 @@ const preview: Preview = {
 // Helper component to apply theme changes
 function ThemeWrapper({ theme, children }: { theme: string; children: React.ReactNode }) {
   const { setTheme } = useTheme();
-  
+
   useEffect(() => {
     setTheme(theme);
   }, [theme, setTheme]);
-  
+
   return <div className="min-h-screen bg-background text-foreground p-4">{children}</div>;
 }
 
