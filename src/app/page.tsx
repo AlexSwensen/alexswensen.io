@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero';
 import Skills from '@/components/Skills';
 import ContactCTA from '@/components/ContactCTA';
+import ValueProposition from '@/components/ValueProposition';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -77,6 +78,7 @@ export default function Home() {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_50%,rgba(79,70,229,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_50%,rgba(100,100,255,0.15),transparent_50%)]"></div>
       <div className="flex-grow flex flex-col gap-16 py-8 md:py-16">
         <Hero />
+        <ValueProposition />
         <Skills />
         <ContactCTA />
       </div>
