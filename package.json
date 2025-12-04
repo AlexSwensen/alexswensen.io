@@ -25,8 +25,8 @@
     "motion": "^12.23.1",
     "next": "16.0.7",
     "next-themes": "^0.4.6",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
+    "react": "19.2.1",
+    "react-dom": "19.2.1",
     "react-markdown": "^10.1.0",
     "rehype-highlight": "^7.0.2",
     "rehype-raw": "^7.0.0",
@@ -46,8 +46,8 @@
     "@storybook/react": "^10.0.7",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "^20",
-    "@types/react": "19.2.2",
-    "@types/react-dom": "19.2.2",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
     "eslint": "^9.30.1",
     "eslint-config-next": "16.0.1",
     "eslint-config-prettier": "^10.1.5",
@@ -61,8 +61,10 @@
   "packageManager": "pnpm@10.22.0+sha512.bf049efe995b28f527fd2b41ae0474ce29186f7edcb3bf545087bd61fbbebb2bf75362d1307fda09c2d288e1e499787ac12d4fcb617a974718a6051f2eee741c",
   "pnpm": {
     "overrides": {
-      "@types/react": "19.2.2",
-      "@types/react-dom": "19.2.2"
+      "react": "19.2.1",
+      "react-dom": "19.2.1",
+      "@types/react": "19.2.7",
+      "@types/react-dom": "19.2.3"
     }
   }
 }
