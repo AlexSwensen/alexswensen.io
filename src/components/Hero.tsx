@@ -34,7 +34,7 @@ const Hero = () => {
         >
           <motion.div variants={fadeInUp}>
             <Image
-              src="/img/me.jpeg?height=150&width=150"
+              src="/img/me.jpeg"
               alt="Alexander Swensen"
               width={150}
               height={150}
