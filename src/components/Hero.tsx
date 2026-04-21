@@ -39,6 +39,7 @@ const Hero = () => {
               width={150}
               height={150}
               className="mx-auto rounded-full ring-2 ring-gray-100 dark:ring-gray-800"
+              loading="eager"
             />
           </motion.div>
           <motion.h1
