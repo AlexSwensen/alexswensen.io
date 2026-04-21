@@ -8,6 +8,11 @@ const eslintConfig = [
   ...nextTypescript,
   prettierConfig,
   {
+    settings: {
+      react: {
+        version: '19',
+      },
+    },
     plugins: {
       prettier: prettierPlugin,
     },
