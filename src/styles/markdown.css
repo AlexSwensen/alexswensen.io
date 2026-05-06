@@ -45,7 +45,11 @@ html {
   .markdown {
     @apply text-black;
   }
-  .markdown code {
-    @apply text-white;
+  .markdown code:not(pre code) {
+    @apply text-black bg-gray-100 px-1 py-0.5 rounded;
+    code {
+      /* @apply text-white bg-grey-800 px-1 py-0.5 rounded; */
+      /* font-color: unset; */
+    }
   }
 }
