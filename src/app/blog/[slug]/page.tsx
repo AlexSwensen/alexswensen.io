@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Markdown } from '@/components/Markdown';
 import Image from 'next/image';
+import Link from 'next/link';
 import '@/styles/markdown.css';
 
 interface Props {
@@ -76,10 +77,16 @@ export default async function BlogPost({ params }: Props) {
   }
 
   return (
-    <div className="container mx-auto px-6 py-8">
-      <article className="max-w-4xl mx-auto">
+    <div className="container mx-auto px-6 py-8 max-w-4xl">
+      <Link
+        href="/blog"
+        className="inline-flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mb-6"
+      >
+        ← Back to Blog
+      </Link>
+      <article>
         {post.image && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
+          <div className="relative w-full h-64 sm:h-80 md:h-96 mb-8 rounded-lg overflow-hidden">
             <Image
               src={post.image}
               alt={post.title}
@@ -91,16 +98,24 @@ export default async function BlogPost({ params }: Props) {
           </div>
         )}
         <header className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-          <div className="flex items-center gap-4 text-gray-600 dark:text-gray-400 mb-4">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight">{post.title}</h1>
+          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
             <time dateTime={post.date}>{formatDate(post.date)}</time>
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <span key={tag} className="text-sm bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
-                  {tag}
-                </span>
-              ))}
-            </div>
+            {post.tags.length > 0 && (
+              <>
+                <span aria-hidden="true">·</span>
+                <div className="flex flex-wrap gap-1.5">
+                  {post.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded-full text-xs text-gray-600 dark:text-gray-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </header>
         <Markdown content={post.content} />
