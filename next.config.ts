@@ -8,6 +8,13 @@ const nextConfig: NextConfig = {
         search: '',
       },
     ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'alexswensen.io',
+        pathname: '/img/**',
+      },
+    ],
   },
 };
 

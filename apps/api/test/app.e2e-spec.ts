@@ -1,11 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import request from 'supertest';
-import { App } from 'supertest/types';
 import { AppModule } from './../src/app.module';
 
-describe('AppController (e2e)', () => {
-  let app: INestApplication<App>;
+type ProfileResponse = {
+  username: string;
+  links: unknown[];
+};
+
+describe('Profiles (e2e)', () => {
+  let app: INestApplication;
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -16,14 +20,16 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
-  });
+  it('/profiles/alex (GET)', () => {
+    const server = app.getHttpServer() as Parameters<typeof request>[0];
 
-  afterEach(async () => {
-    await app.close();
+    return request(server)
+      .get('/profiles/alex')
+      .expect(200)
+      .expect((res) => {
+        const body = res.body as ProfileResponse;
+        expect(body.username).toBe('alex');
+        expect(Array.isArray(body.links)).toBe(true);
+      });
   });
 });

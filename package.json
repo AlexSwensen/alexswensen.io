@@ -4,12 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:api": "pnpm --filter api start:dev",
     "build": "next build",
+    "build:api": "pnpm --filter api build",
     "start": "next start",
+    "start:api": "pnpm --filter api start",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "eslint .",
+    "lint:api": "pnpm --filter api lint",
     "format": "prettier --write .",
+    "test:api": "pnpm --filter api test",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui"
   },

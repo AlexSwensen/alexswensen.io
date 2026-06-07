@@ -46,6 +46,41 @@ pnpm build-storybook
 
 All components in `src/components` and `src/components/ui` have corresponding `.stories.tsx` files for documentation and interactive testing.
 
+## Linktree Clone (React + NestJS)
+
+This repository now includes:
+
+- A server-rendered React linktree page in Next.js at `/links/:username`
+- A NestJS API in `/apps/api` with SQLite persistence and analytics tracking
+
+### Run the API
+
+```bash
+pnpm dev:api
+```
+
+The API runs on `http://localhost:4000` by default and seeds a default profile at `alex`.
+
+### Run the web app
+
+```bash
+pnpm dev
+```
+
+### Environment variables
+
+- `LINKTREE_API_URL` (server-side Next.js fetch base URL)
+- `NEXT_PUBLIC_LINKTREE_API_URL` (client-side analytics POST base URL)
+- `LINKTREE_WEB_ORIGIN` (CORS origin for NestJS API)
+- `LINKTREE_DB_PATH` (SQLite path for NestJS API, defaults to `data/linktree.sqlite`)
+
+### Routes
+
+- Linktree page: `http://localhost:3000/links/alex`
+- Analytics dashboard: `http://localhost:3000/links/alex/analytics`
+- API profile endpoint: `GET http://localhost:4000/profiles/alex`
+- API analytics endpoint: `POST http://localhost:4000/analytics/events`
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
