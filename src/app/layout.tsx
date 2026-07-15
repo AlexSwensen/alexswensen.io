@@ -7,6 +7,7 @@ import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { getLastMigration } from '@/db';
 
 const geistSans = GeistSans;
 const geistMono = GeistMono;
@@ -34,11 +35,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const lastMigration = await getLastMigration();
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -48,6 +50,13 @@ export default function RootLayout({
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
+          {lastMigration && (
+            <p className="text-center py-2 text-xs text-muted-foreground/60">
+              Last DB deployment: <code className="font-mono">{lastMigration.hash}</code>
+              {' · '}
+              {lastMigration.appliedAt}
+            </p>
+          )}
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
