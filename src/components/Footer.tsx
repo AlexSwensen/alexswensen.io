@@ -1,4 +1,7 @@
-export function Footer() {
+import { getLastMigration } from '@/db';
+
+export async function Footer() {
+  const lastMigration = await getLastMigration();
   return (
     <footer className="bg-muted/50 backdrop-blur-sm text-muted-foreground py-6">
       <div className="container mx-auto px-4 text-center">
@@ -31,6 +34,13 @@ export function Footer() {
             Twitter
           </a>
         </div>
+        {lastMigration && (
+          <p className="mt-4 text-xs text-muted-foreground/60">
+            Last DB deployment: <code className="font-mono">{lastMigration.hash}</code>
+            {' · '}
+            {lastMigration.appliedAt}
+          </p>
+        )}
       </div>
     </footer>
   );

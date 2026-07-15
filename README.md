@@ -2,19 +2,58 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-Setup pnpm:
+### Prerequisites
+
+- [pnpm](https://pnpm.io/installation)
+- [Docker](https://docs.docker.com/get-docker/) (for the local database)
 
 ```bash
 curl -fsSL https://pnpm.io/install.sh | sh
 ```
 
-Install dependencies:
+### 1. Install dependencies
 
 ```bash
 pnpm install
 ```
 
-First, run the development server:
+### 2. Configure environment variables
+
+```bash
+cp .env.example .env
+```
+
+The defaults in `.env.example` work out of the box for local development. For production, set `DATABASE_URL` to your [Neon](https://neon.tech) connection string.
+
+### 3. Start the local database
+
+This project uses PostgreSQL via Docker Compose, with a [Neon-compatible WebSocket proxy](https://github.com/neondatabase/wsproxy) so the same `@neondatabase/serverless` driver works locally and in production.
+
+```bash
+docker compose up -d
+```
+
+| Service      | Port   | Purpose                                     |
+| ------------ | ------ | ------------------------------------------- |
+| `db`         | `5432` | PostgreSQL 18                               |
+| `neon-proxy` | `4444` | WebSocket proxy (Neon driver compatibility) |
+
+### 4. Run database migrations
+
+```bash
+pnpm db:migrate
+```
+
+| Command            | Description                                                         |
+| ------------------ | ------------------------------------------------------------------- |
+| `pnpm db:generate` | Generate a new migration file from schema changes                   |
+| `pnpm db:migrate`  | Apply pending migrations                                            |
+| `pnpm db:push`     | Push schema directly to the database (dev only, no migration files) |
+| `pnpm db:studio`   | Open Drizzle Studio to browse the database                          |
+
+Schema files live in `src/db/schema/`. Add a new file per domain and re-export it from `src/db/schema/index.ts`.
+
+### 5. Start the development server
 
 ```bash
 pnpm dev
