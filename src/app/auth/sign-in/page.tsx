@@ -49,11 +49,11 @@ export default function SignInPage() {
         <CardContent className="space-y-4">
           {/* Social providers */}
           <div className="grid grid-cols-2 gap-3">
-            <Button variant="outline" onClick={() => handleSocial('google')} type="button">
+            <Button variant="outline" onClick={() => handleSocial('google')} type="button" disabled={true}>
               <GoogleIcon />
               Google
             </Button>
-            <Button variant="outline" onClick={() => handleSocial('discord')} type="button">
+            <Button variant="outline" onClick={() => handleSocial('discord')} type="button" disabled={true}>
               <DiscordIcon />
               Discord
             </Button>
