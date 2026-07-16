@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
   const comments = await db
     .select()
     .from(commentsTable)
-    .where(eq(commentsTable.postSlug, slug))
+    .where(eq(commentsTable.postSlug, slug) && eq(commentsTable.approved, true))
     .orderBy(asc(commentsTable.createdAt));
 
   return NextResponse.json(comments);
