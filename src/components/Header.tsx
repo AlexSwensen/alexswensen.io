@@ -2,9 +2,12 @@
 import Link from 'next/link';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { useState } from 'react';
+import { useSession, signOut } from '@/lib/auth-client';
+import { Button } from '@/components/ui/button';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { data: session } = useSession();
 
   return (
     <header className="sticky top-0 z-10 backdrop-blur-md bg-background/80 border-b">
@@ -71,6 +74,35 @@ export function Header() {
             <li>
               <ThemeToggle />
             </li>
+            {session?.user ? (
+              <>
+                <li className="text-sm text-muted-foreground hidden md:block">
+                  {session.user.name}
+                </li>
+                <li>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => signOut({ fetchOptions: { onSuccess: () => { window.location.href = '/'; } } })}
+                  >
+                    Sign out
+                  </Button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Button variant="ghost" size="sm" asChild>
+                    <Link href="/auth/sign-in">Sign in</Link>
+                  </Button>
+                </li>
+                <li>
+                  <Button size="sm" asChild>
+                    <Link href="/auth/sign-up">Register</Link>
+                  </Button>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </nav>

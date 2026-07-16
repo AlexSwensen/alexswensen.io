@@ -2,6 +2,7 @@ import { getPostBySlug, getAllPosts } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Markdown } from '@/components/Markdown';
+import { CommentSection } from '@/components/CommentSection';
 import Image from 'next/image';
 import '@/styles/markdown.css';
 
@@ -104,6 +105,7 @@ export default async function BlogPost({ params }: Props) {
           </div>
         </header>
         <Markdown content={post.content} />
+        <CommentSection slug={slug} />
       </article>
     </div>
   );
