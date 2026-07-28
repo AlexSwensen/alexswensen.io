@@ -83,7 +83,15 @@ export function Header() {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => signOut({ fetchOptions: { onSuccess: () => { window.location.href = '/'; } } })}
+                    onClick={() =>
+                      signOut({
+                        fetchOptions: {
+                          onSuccess: () => {
+                            window.location.href = '/';
+                          },
+                        },
+                      })
+                    }
                   >
                     Sign out
                   </Button>

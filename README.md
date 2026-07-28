@@ -23,13 +23,13 @@ cp .env.example .env
 
 Fill in the required values:
 
-| Variable | Description |
-| --- | --- |
-| `POSTGRES_PASSWORD` | Password for the local Postgres container |
-| `DATABASE_URL` | Postgres connection string (defaults work for local dev) |
-| `BETTER_AUTH_SECRET` | 32+ char secret — generate with `openssl rand -base64 32` |
-| `BETTER_AUTH_URL` | Base URL of the app (e.g. `http://localhost:3000`) |
-| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | [Google OAuth credentials](https://console.cloud.google.com/) |
+| Variable                                      | Description                                                              |
+| --------------------------------------------- | ------------------------------------------------------------------------ |
+| `POSTGRES_PASSWORD`                           | Password for the local Postgres container                                |
+| `DATABASE_URL`                                | Postgres connection string (defaults work for local dev)                 |
+| `BETTER_AUTH_SECRET`                          | 32+ char secret — generate with `openssl rand -base64 32`                |
+| `BETTER_AUTH_URL`                             | Base URL of the app (e.g. `http://localhost:3000`)                       |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET`   | [Google OAuth credentials](https://console.cloud.google.com/)            |
 | `DISCORD_CLIENT_ID` / `DISCORD_CLIENT_SECRET` | [Discord OAuth credentials](https://discord.com/developers/applications) |
 
 For production, set `DATABASE_URL` to your [Neon](https://neon.tech) connection string and `BETTER_AUTH_URL` to your deployed domain.
@@ -42,9 +42,9 @@ This project uses PostgreSQL via Docker Compose, with a [Neon-compatible WebSock
 docker compose up -d
 ```
 
-| Service | Port | Purpose |
-| --- | --- | --- |
-| `db` | `5432` | PostgreSQL 18 |
+| Service      | Port   | Purpose                                     |
+| ------------ | ------ | ------------------------------------------- |
+| `db`         | `5432` | PostgreSQL 18                               |
 | `neon-proxy` | `4444` | WebSocket proxy (Neon driver compatibility) |
 
 ### 4. Run database migrations
@@ -53,13 +53,13 @@ docker compose up -d
 pnpm db:migrate
 ```
 
-| Command | Description |
-| --- | --- |
-| `pnpm db:generate` | Generate a new migration file from schema changes |
-| `pnpm db:migrate` | Apply pending migrations |
-| `pnpm db:push` | Push schema directly to the database (dev only, no migration files) |
-| `pnpm db:studio` | Open Drizzle Studio to browse the database |
-| `pnpm db:reset` | ⚠️ Drop all tables and clear migration history (requires confirmation) |
+| Command            | Description                                                            |
+| ------------------ | ---------------------------------------------------------------------- |
+| `pnpm db:generate` | Generate a new migration file from schema changes                      |
+| `pnpm db:migrate`  | Apply pending migrations                                               |
+| `pnpm db:push`     | Push schema directly to the database (dev only, no migration files)    |
+| `pnpm db:studio`   | Open Drizzle Studio to browse the database                             |
+| `pnpm db:reset`    | ⚠️ Drop all tables and clear migration history (requires confirmation) |
 
 Schema files live in `src/db/schema/`. The auth tables (`user`, `session`, `account`, `verification`, `two_factor`) are managed by Better Auth and defined in `src/db/schema/auth.ts`.
 

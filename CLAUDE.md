@@ -4,19 +4,19 @@ Personal website and blog for Alex Swensen. Built with Next.js (App Router), Rea
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 16 (App Router, Turbopack) |
-| UI | React 19, Tailwind CSS v4, shadcn/ui (Radix primitives) |
-| Auth | Better Auth (email+password, Google, Discord, TOTP 2FA) |
-| Database ORM | Drizzle ORM |
-| Database (prod) | Neon (serverless Postgres) |
-| Database (local dev) | Vanilla Postgres via Docker |
-| Animations | Motion (Framer Motion) |
-| Blog content | Markdown files in `posts/` with gray-matter front-matter |
-| Testing | Playwright (E2E) |
-| Component dev | Storybook 10 |
-| Deployment | Vercel (with Vercel Analytics + Speed Insights) |
+| Layer                | Technology                                               |
+| -------------------- | -------------------------------------------------------- |
+| Framework            | Next.js 16 (App Router, Turbopack)                       |
+| UI                   | React 19, Tailwind CSS v4, shadcn/ui (Radix primitives)  |
+| Auth                 | Better Auth (email+password, Google, Discord, TOTP 2FA)  |
+| Database ORM         | Drizzle ORM                                              |
+| Database (prod)      | Neon (serverless Postgres)                               |
+| Database (local dev) | Vanilla Postgres via Docker                              |
+| Animations           | Motion (Framer Motion)                                   |
+| Blog content         | Markdown files in `posts/` with gray-matter front-matter |
+| Testing              | Playwright (E2E)                                         |
+| Component dev        | Storybook 10                                             |
+| Deployment           | Vercel (with Vercel Analytics + Speed Insights)          |
 
 ## Project Structure
 
@@ -58,6 +58,7 @@ Authentication is handled by [Better Auth](https://better-auth.com).
 - API handler: `src/app/api/auth/[...all]/route.ts` — `toNextJsHandler(auth)`
 
 Enabled features:
+
 - Email + password
 - Google OAuth (`GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET`)
 - Discord OAuth (`DISCORD_CLIENT_ID` / `DISCORD_CLIENT_SECRET`)
@@ -88,6 +89,7 @@ docker compose up -d
 ```
 
 This starts two services:
+
 - **`db`** — `postgres:18-alpine` on port `5432`
 - **`neon-proxy`** — Neon's open-source `wsproxy` on port `4444`, forwarding WebSocket connections from the app to `db:5432`
 
@@ -95,14 +97,14 @@ Copy `.env.example` to `.env` and fill in the required values.
 
 ### Schema
 
-| Table | Key columns |
-|---|---|
-| `user` | `id` (text PK), `name`, `email` (unique), `emailVerified`, `image`, `twoFactorEnabled` |
-| `session` | `id` (text PK), `token` (unique), `userId` (FK → user), `expiresAt` |
-| `account` | `id` (text PK), `providerId`, `accountId`, `userId` (FK → user) |
-| `verification` | `id` (text PK), `identifier`, `value`, `expiresAt` |
-| `two_factor` | `id` (text PK), `secret`, `backupCodes`, `userId` (FK → user) |
-| `comments` | `id` (uuid PK), `postSlug`, `userId` (FK → user), `authorName`, `body`, `approved`, `createdAt` |
+| Table          | Key columns                                                                                     |
+| -------------- | ----------------------------------------------------------------------------------------------- |
+| `user`         | `id` (text PK), `name`, `email` (unique), `emailVerified`, `image`, `twoFactorEnabled`          |
+| `session`      | `id` (text PK), `token` (unique), `userId` (FK → user), `expiresAt`                             |
+| `account`      | `id` (text PK), `providerId`, `accountId`, `userId` (FK → user)                                 |
+| `verification` | `id` (text PK), `identifier`, `value`, `expiresAt`                                              |
+| `two_factor`   | `id` (text PK), `secret`, `backupCodes`, `userId` (FK → user)                                   |
+| `comments`     | `id` (uuid PK), `postSlug`, `userId` (FK → user), `authorName`, `body`, `approved`, `createdAt` |
 
 ### Drizzle commands
 
@@ -124,7 +126,7 @@ title: Post Title
 excerpt: Short description
 date: YYYY-MM-DD
 tags: [tag1, tag2]
-image: /img/post-banners/image.png  # optional
+image: /img/post-banners/image.png # optional
 ---
 ```
 
@@ -165,21 +167,20 @@ DISCORD_CLIENT_SECRET=
 
 `DATABASE_URL` and the `BETTER_AUTH_*` variables are consumed by the app at runtime. The OAuth variables are only needed if you want social sign-in to work.
 
-
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 16 (App Router, Turbopack) |
-| UI | React 19, Tailwind CSS v4, shadcn/ui (Radix primitives) |
-| Database ORM | Drizzle ORM |
-| Database (prod) | Neon (serverless Postgres) |
-| Database (local dev) | Vanilla Postgres via Docker |
-| Animations | Motion (Framer Motion) |
-| Blog content | Markdown files in `posts/` with gray-matter front-matter |
-| Testing | Playwright (E2E) |
-| Component dev | Storybook 10 |
-| Deployment | Vercel (with Vercel Analytics + Speed Insights) |
+| Layer                | Technology                                               |
+| -------------------- | -------------------------------------------------------- |
+| Framework            | Next.js 16 (App Router, Turbopack)                       |
+| UI                   | React 19, Tailwind CSS v4, shadcn/ui (Radix primitives)  |
+| Database ORM         | Drizzle ORM                                              |
+| Database (prod)      | Neon (serverless Postgres)                               |
+| Database (local dev) | Vanilla Postgres via Docker                              |
+| Animations           | Motion (Framer Motion)                                   |
+| Blog content         | Markdown files in `posts/` with gray-matter front-matter |
+| Testing              | Playwright (E2E)                                         |
+| Component dev        | Storybook 10                                             |
+| Deployment           | Vercel (with Vercel Analytics + Speed Insights)          |
 
 ## Project Structure
 
@@ -219,6 +220,7 @@ docker compose up -d
 ```
 
 This starts two services:
+
 - **`db`** — `postgres:18-alpine` on port `5432`
 - **`neon-proxy`** — Neon's open-source `wsproxy` on port `4444`, forwarding WebSocket connections from the app to `db:5432`
 
@@ -226,9 +228,9 @@ Copy `.env.example` to `.env` and fill in `POSTGRES_PASSWORD` at minimum.
 
 ### Schema
 
-| Table | Key columns |
-|---|---|
-| `users` | `id` (uuid PK), `name`, `email` (unique) |
+| Table      | Key columns                                                                                                     |
+| ---------- | --------------------------------------------------------------------------------------------------------------- |
+| `users`    | `id` (uuid PK), `name`, `email` (unique)                                                                        |
 | `comments` | `id` (uuid PK), `postSlug`, `userId` (FK → users), `authorName`, `authorEmail`, `body`, `approved`, `createdAt` |
 
 ### Drizzle commands
@@ -250,7 +252,7 @@ title: Post Title
 excerpt: Short description
 date: YYYY-MM-DD
 tags: [tag1, tag2]
-image: /img/post-banners/image.png  # optional
+image: /img/post-banners/image.png # optional
 ---
 ```
 
