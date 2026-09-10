@@ -2,10 +2,10 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import {
-  Twitter as TwitterIcon,
-  Github as GithubIcon,
-  Linkedin as LinkedinIcon,
-} from 'lucide-react';
+  FiTwitter as TwitterIcon,
+  FiGithub as GithubIcon,
+  FiLinkedin as LinkedinIcon,
+} from 'react-icons/fi';
 import { motion } from 'motion/react';
 
 const fadeInUp = {

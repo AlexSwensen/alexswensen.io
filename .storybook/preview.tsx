@@ -13,9 +13,10 @@ const preview: Preview = {
       expanded: true,
     },
     backgrounds: {
-      disable: true,
+      disabled: true,
     },
   },
+
   globalTypes: {
     theme: {
       description: 'Global theme for components',
@@ -32,6 +33,7 @@ const preview: Preview = {
       },
     },
   },
+
   decorators: [
     (Story, context) => {
       const theme = context.globals.theme || 'light';
@@ -50,6 +52,8 @@ const preview: Preview = {
       );
     },
   ],
+
+  tags: ['autodocs'],
 };
 
 // Helper component to apply theme changes

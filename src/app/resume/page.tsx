@@ -3,7 +3,8 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { resumeData } from '@/data/resume-data';
-import { Mail, Phone, MapPin, Globe, Linkedin, Github, Calendar, Building } from 'lucide-react';
+import { Mail, Phone, MapPin, Globe, Calendar, Building } from 'lucide-react';
+import { FiGithub, FiLinkedin } from 'react-icons/fi';
 import { motion } from 'motion/react';
 
 export default function ResumePage() {
@@ -163,9 +164,11 @@ export default function ResumePage() {
                     )}
                     {key === 'website' && <Globe className="h-4 w-4 mr-2 text-muted-foreground" />}
                     {key === 'linkedin' && (
-                      <Linkedin className="h-4 w-4 mr-2 text-muted-foreground" />
+                      <FiLinkedin className="h-4 w-4 mr-2 text-muted-foreground" />
                     )}
-                    {key === 'github' && <Github className="h-4 w-4 mr-2 text-muted-foreground" />}
+                    {key === 'github' && (
+                      <FiGithub className="h-4 w-4 mr-2 text-muted-foreground" />
+                    )}
                     {key === 'email' ? (
                       <a
                         href={`mailto:${value}`}
