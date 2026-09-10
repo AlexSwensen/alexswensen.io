@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { useState } from 'react';
 import { useSession, signOut } from '@/lib/auth-client';
@@ -8,6 +9,7 @@ import { Button } from '@/components/ui/button';
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { data: session } = useSession();
+  const router = useRouter();
 
   return (
     <header className="sticky top-0 z-10 backdrop-blur-md bg-background/80 border-b">
@@ -87,7 +89,7 @@ export function Header() {
                       signOut({
                         fetchOptions: {
                           onSuccess: () => {
-                            window.location.href = '/';
+                            router.push('/');
                           },
                         },
                       })
