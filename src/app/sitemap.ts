@@ -1,8 +1,9 @@
 import { getAllPosts } from '@/lib/posts';
 import { MetadataRoute } from 'next';
+import { siteConfig } from '@/config/site';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://alexswensen.io';
+  const baseUrl = siteConfig.url;
   const posts = await getAllPosts();
 
   // Blog post URLs

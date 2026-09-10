@@ -2,10 +2,33 @@ import { getAllPosts } from '@/lib/posts';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { siteConfig } from '@/config/site';
+import { JsonLd, blogJsonLd } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
-  title: 'Blog | Alexander Swensen',
-  description: 'Thoughts and writings on software development, technology, and more.',
+  title: 'Blog',
+  description:
+    'Writings from Alexander Swensen on software development, web technologies, and career experiences.',
+  openGraph: {
+    type: 'website',
+    url: `${siteConfig.url}/blog`,
+    title: `Blog | ${siteConfig.name}`,
+    description:
+      'Writings from Alexander Swensen on software development, web technologies, and career experiences.',
+    siteName: siteConfig.name,
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: `${siteConfig.name} Blog` }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `Blog | ${siteConfig.name}`,
+    description:
+      'Writings from Alexander Swensen on software development, web technologies, and career experiences.',
+    creator: siteConfig.twitterHandle,
+    images: [siteConfig.ogImage],
+  },
+  alternates: {
+    canonical: `${siteConfig.url}/blog`,
+  },
 };
 
 export const dynamic = 'force-static';
@@ -24,6 +47,7 @@ export default async function BlogPage() {
 
   return (
     <div className="container mx-auto px-6 py-8">
+      <JsonLd data={blogJsonLd(posts)} />
       <h1 className="text-3xl font-bold mb-8">Blog</h1>
       <div className="grid gap-8 md:grid-cols-2">
         {posts.map((post) => (

@@ -2,14 +2,14 @@ import Hero from '@/components/Hero';
 import Skills from '@/components/Skills';
 import ContactCTA from '@/components/ContactCTA';
 import type { Metadata } from 'next';
+import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Alexander Swensen | Software Engineer',
+    default: siteConfig.title,
     template: '%s | Alexander Swensen',
   },
-  description:
-    'Software Engineer specializing in full-stack development with expertise in React, Next.js, AWS, and modern web technologies.',
+  description: siteConfig.description,
   keywords: [
     'Alexander Swensen',
     'Software Engineer',
@@ -22,31 +22,29 @@ export const metadata: Metadata = {
     'Frontend Development',
     'Backend Development',
   ],
-  authors: [{ name: 'Alexander Swensen' }],
-  creator: 'Alexander Swensen',
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://alexswensen.io',
-    title: 'Alexander Swensen | Software Engineer',
-    description:
-      'Software Engineer specializing in full-stack development with expertise in React, Next.js, AWS, and modern web technologies.',
-    siteName: 'Alexander Swensen Portfolio',
+    url: siteConfig.url,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
     images: [
       {
         url: '/img/me.jpeg',
         width: 150,
         height: 150,
-        alt: 'Alexander Swensen',
+        alt: siteConfig.name,
       },
     ],
   },
   twitter: {
     card: 'summary',
-    title: 'Alexander Swensen | Software Engineer',
-    description:
-      'Software Engineer specializing in full-stack development with expertise in React, Next.js, AWS, and modern web technologies.',
-    creator: '@alexswensen_',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    creator: siteConfig.twitterHandle,
     images: ['/img/me.jpeg'],
   },
   robots: {
@@ -60,7 +58,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  metadataBase: new URL('https://alexswensen.io'),
   verification: {
     // Add these if you have them
     // google: "your-google-site-verification",

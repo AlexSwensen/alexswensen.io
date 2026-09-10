@@ -7,14 +7,46 @@ import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { siteConfig } from '@/config/site';
+import { JsonLd, personJsonLd, websiteJsonLd } from '@/lib/structured-data';
 
 const geistSans = GeistSans;
 const geistMono = GeistMono;
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     template: '%s | Alexander Swensen',
-    default: 'Alexander Swensen',
+    default: siteConfig.title,
+  },
+  description: siteConfig.description,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  keywords: [
+    'Alexander Swensen',
+    'Software Engineer',
+    'Full Stack Developer',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'AWS',
+    'Node.js',
+  ],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: siteConfig.name }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    creator: siteConfig.twitterHandle,
+    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,
@@ -44,6 +76,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background antialiased`}
       >
+        <JsonLd data={websiteJsonLd()} />
+        <JsonLd data={personJsonLd()} />
         <ThemeProvider>
           <Header />
           <main className="flex-grow">{children}</main>

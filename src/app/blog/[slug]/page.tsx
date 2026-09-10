@@ -5,6 +5,8 @@ import { Markdown } from '@/components/Markdown';
 import { CommentSection } from '@/components/CommentSection';
 import Image from 'next/image';
 import '@/styles/markdown.css';
+import { siteConfig } from '@/config/site';
+import { JsonLd, blogPostingJsonLd } from '@/lib/structured-data';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -19,17 +21,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!post) return {};
 
-  const ogImage = post.image || '/images/default-og.png'; // Fallback OG image
+  const ogImage = post.image || siteConfig.ogImage;
 
   return {
-    title: `${post.title} | Alexander Swensen`,
+    title: `${post.title} | ${siteConfig.name}`,
     description: post.excerpt,
-    authors: [{ name: 'Alexander Swensen' }],
+    authors: [{ name: siteConfig.name }],
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: 'article',
-      url: `https://alexswensen.io/blog/${slug}`,
+      url: `${siteConfig.url}/blog/${slug}`,
+      siteName: siteConfig.name,
       images: [
         {
           url: ogImage,
@@ -44,10 +47,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: post.title,
       description: post.excerpt,
       images: [ogImage],
-      creator: '@alexswensen_', // Replace with your Twitter handle
+      creator: siteConfig.twitterHandle,
     },
     alternates: {
-      canonical: `https://alexswensen.io/blog/${slug}`,
+      canonical: `${siteConfig.url}/blog/${slug}`,
     },
     keywords: post.tags,
   };
@@ -78,6 +81,7 @@ export default async function BlogPost({ params }: Props) {
 
   return (
     <div className="container mx-auto px-6 py-8">
+      <JsonLd data={blogPostingJsonLd(post)} />
       <article className="max-w-4xl mx-auto">
         {post.image && (
           <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
