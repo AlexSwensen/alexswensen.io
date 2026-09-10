@@ -5,6 +5,10 @@ allowBuilds:
   esbuild: true
   sharp: true
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - react-dom@19.3.0
+  - react@19.3.0
+  - scheduler@0.28.0
 overrides:
   '@types/react': 19.2.17
   '@types/react-dom': 19.2.3
