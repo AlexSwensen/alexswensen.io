@@ -2,16 +2,22 @@ import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import { cache } from 'react';
+import { z } from 'zod';
 
-export interface Post {
-  title: string;
-  excerpt: string;
-  date: string;
-  tags: string[];
-  slug: string;
-  content: string;
-  image?: string;
-}
+const PostFrontmatterSchema = z.object({
+  title: z.string(),
+  excerpt: z.string(),
+  date: z.string(),
+  tags: z.array(z.string()).default([]),
+  image: z.string().optional(),
+});
+
+const PostSchema = PostFrontmatterSchema.extend({
+  slug: z.string(),
+  content: z.string(),
+});
+
+export type Post = z.infer<typeof PostSchema>;
 
 export const getAllPosts = cache(async () => {
   const postsDirectory = path.join(process.cwd(), 'posts');
@@ -25,11 +31,11 @@ export const getAllPosts = cache(async () => {
         const fileContent = await fs.readFile(filePath, 'utf8');
         const { data, content } = matter(fileContent);
 
-        return {
+        return PostSchema.parse({
           ...data,
           slug: path.basename(file, '.md'),
           content,
-        } as Post;
+        });
       })
   );
 

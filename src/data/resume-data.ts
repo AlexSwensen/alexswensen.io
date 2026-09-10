@@ -1,4 +1,58 @@
-export const resumeData = {
+import { z } from 'zod';
+
+const ContactSchema = z.object({
+  email: z.string().email(),
+  phone: z.string(),
+  location: z.string(),
+  website: z.string(),
+  linkedin: z.string(),
+  github: z.string(),
+});
+
+const CertificationSchema = z.object({
+  name: z.string(),
+  issuer: z.string(),
+  date: z.string(),
+  url: z.string(),
+});
+
+const EducationSchema = z.object({
+  degree: z.string(),
+  institution: z.string(),
+  location: z.string(),
+  date: z.string(),
+});
+
+const WorkExperienceSchema = z.object({
+  position: z.string(),
+  company: z.string(),
+  location: z.string(),
+  startDate: z.string(),
+  endDate: z.string(),
+  skills: z.array(z.string()).optional(),
+  duties: z.array(z.string()).optional(),
+});
+
+const LanguageSchema = z.object({
+  name: z.string(),
+  proficiency: z.string(),
+});
+
+const ResumeDataSchema = z.object({
+  name: z.string(),
+  title: z.string(),
+  bio: z.string(),
+  contact: ContactSchema,
+  certifications: z.array(CertificationSchema),
+  skills: z.array(z.string()),
+  education: z.array(EducationSchema),
+  workExperience: z.array(WorkExperienceSchema),
+  languages: z.array(LanguageSchema),
+});
+
+export type ResumeData = z.infer<typeof ResumeDataSchema>;
+
+export const resumeData = ResumeDataSchema.parse({
   name: 'Alexander Swensen',
   title: 'Full Stack Software Engineer',
   bio: 'As a full stack engineer, I have over 10 years of experience developing and implementing scalable software solutions for clients across various industries. I leverage my expertise in full-stack development and agile methodologies to collaborate closely with cross-functional teams, including project managers, designers, and QA analysts. I also implement automated testing suites, lead code reviews, and contribute to the open-source community by publishing reusable code libraries.',
@@ -140,4 +194,4 @@ export const resumeData = {
   ],
 
   languages: [{ name: 'English', proficiency: 'Native' }],
-};
+});
