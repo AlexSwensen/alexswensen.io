@@ -76,7 +76,7 @@
     "eslint-plugin-storybook": "10.6.0",
     "postcss": "^8.5.28",
     "prettier": "^3.9.6",
-    "storybook": "^10.6.0",
+    "storybook": "^10.6.2",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2"
   },
